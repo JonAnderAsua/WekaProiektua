@@ -1,6 +1,6 @@
 echo -e 'label \t text' > main.txt
 sed -i '/&lt;#&gt;/d' SMS_SpamCollection.dev.txt 
-sed -i "s/'/ /g" SMS_SpamCollection.dev.txt 
+sed -i "s/'//g" SMS_SpamCollection.dev.txt 
 cat SMS_SpamCollection.dev.txt >> main.txt
 
 tr '"' ' ' < main.txt | tr ',' '/' | tr '\t' ',' | tr '/' ' ' > spam.csv 
