@@ -1,0 +1,11 @@
+#r = getOption("repos")
+#r["CRAN"] = "http://cran.us.r-project.org"
+#options(repos = r)
+#install.packages("data.table")
+#install.packages("foreign")
+#install.packages("tibble")
+library(foreign)
+library(data.table)
+library(tibble)
+a<-fread("spam.csv", quote = "")
+write.csv(a, file="spam_new.csv", fileEncoding = "Cp1252", row.names = FALSE)
