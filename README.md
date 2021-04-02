@@ -28,7 +28,7 @@ Para ejecutar el script que arregla los fitxategis train y dev, hay que tener in
 Ejecutar el script: 
 
 ```bash
-./getRaw.sh SMS_SpamCollection.train.txt SMS_SpamCollection.dev.txt SMS_SpamCollection.test_blind.txt ~/weka-3-8-5-azul-zulu-linux/weka-3-8-5/weka.jar '
+./getRaw.sh SMS_SpamCollection.train.txt SMS_SpamCollection.dev.txt SMS_SpamCollection.test_blind.txt ~/weka-3-8-5-azul-zulu-linux/weka-3-8-5/weka.jar 
 ```
 
 ### Datu horien errepresentazio bektoriala lortu
