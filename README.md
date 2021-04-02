@@ -45,10 +45,10 @@ El [script](https://github.com/JonAnderAsua/WekaProiektua/blob/master/src/main/r
 
 ## Sailkatzailea
 ### Informazio irabazian oinarritutako atributuen hautapena 
-3.1 del segundo documento. Preguntar: Atributuen hautapena con BOW?
+3.1 del segundo documento. Preguntar: Atributuen hautapena (erredundantzia kendu)
   
 ### Ereduaren inferentzia eta itxarondako kalitatearen estimazioa 
-3.2 del segundo documento. Parametro ekorketa
+3.2 del segundo documento. Parametro ekorketa (depth, k value, numtrees?)
   
 ### Eredu iragarlea
 3.2.3 del segundo documento.
