@@ -4,7 +4,6 @@
   * [Testuen errepresentazio bektoriala](#testuen-errepresentazio-bektoriala)
     + [Datu gordinak arff formatura bihurtu](#datu-gordinak-arff-formatura-bihurtu)
       - [Requerimentos](#requerimentos)
-      - [Cosas a tener en cuenta](#cosas-a-tener-en-cuenta)
     + [Datu horien errepresentazio bektoriala lortu](#datu-horien-errepresentazio-bektoriala-lortu)
     + [Test multzoa errepresentazio-espaziora egokitu](#test-multzoa-errepresentazio-espaziora-egokitu)
     + [Dokumentazio eta atal teorikoa](#dokumentazio-eta-atal-teorikoa)
@@ -24,14 +23,13 @@
 3.1 del primer documento
 
 #### Requerimentos
-Para ejecutar el script que arregla los fitxategis [train](https://github.com/JonAnderAsua/WekaProiektua/blob/master/src/main/resources/dataFiles/train/Script.sh) y [dev](https://github.com/JonAnderAsua/WekaProiektua/blob/master/src/main/resources/dataFiles/dev/Script.sh), hay que tener instalado R en el ordenador, ya que ejecuta el otro script de R ([train](https://github.com/JonAnderAsua/WekaProiektua/blob/master/src/main/resources/dataFiles/train/newFix.r) y [dev](https://github.com/JonAnderAsua/WekaProiektua/blob/master/src/main/resources/dataFiles/dev/newFix.r)).
-Ademas de eso, hace falta instalar varias librerias de R, asi que si es la primera vez que lo ejecutais tendreis que descomentar las primeras lineas en el script de R.
+Para ejecutar el script que arregla los fitxategis train y dev, hay que tener instalado R en el ordenador, ya que ejecuta el otro script de R (train y dev). Ademas de eso, hace falta instalar varias librerias de R, asi que si es la primera vez que lo ejecutais tendreis que descomentar las primeras lineas en el script de R.
 
+Ejecutar el script: 
 
-#### Cosas a tener en cuenta 
-El script que arregla los fitxategis [train](https://github.com/JonAnderAsua/WekaProiektua/blob/master/src/main/resources/dataFiles/train/Script.sh) y [dev](https://github.com/JonAnderAsua/WekaProiektua/blob/master/src/main/resources/dataFiles/dev/Script.sh) te va a pedir en un momento que le digas donde esta el archivo weka.jar, si pones el path como ~/weka-3-8-5/weka.jar falla. En cambio si lo pones como /home/ander/weka-3-8-5/weka.jar no.
-
-El [script](https://github.com/JonAnderAsua/WekaProiektua/blob/master/src/main/resources/dataFiles/test/testScript.sh) para pasar todo el text a [test.arff](https://github.com/JonAnderAsua/WekaProiektua/blob/master/src/main/resources/dataFiles/test/test.arff) requiere que [spam_train.arff](https://github.com/JonAnderAsua/WekaProiektua/blob/master/src/main/resources/dataFiles/train/spam_train.arff) esté en la misma carpeta para funcionar. 
+```bash
+./getRaw.sh SMS_SpamCollection.train.txt SMS_SpamCollection.dev.txt SMS_SpamCollection.test_blind.txt ~/weka-3-8-5-azul-zulu-linux/weka-3-8-5/weka.jar '
+```
 
 ### Datu horien errepresentazio bektoriala lortu
 3.2 del primer documento, va de Bag of Words/Sparse/NonSparse...
