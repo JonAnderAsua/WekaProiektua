@@ -2,6 +2,7 @@ package EntregaBat;
 
 import weka.core.Attribute;
 import weka.core.Instances;
+import weka.core.converters.ArffSaver;
 import weka.core.converters.ConverterUtils;
 import weka.filters.Filter;
 import weka.filters.unsupervised.attribute.StringToWordVector;
@@ -50,7 +51,14 @@ public class TransformRaw {
                 bw.flush();
                 bw.close();
             }
+
+            ArffSaver as = new ArffSaver();
+            as.setInstances(train);
+            as.setFile(new File("BoW"+args[0]));
+            as.writeBatch();
         }
+
+
 
     }
 
