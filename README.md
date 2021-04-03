@@ -33,7 +33,11 @@ Ejecutar el script:
 
 ### Datu horien errepresentazio bektoriala lortu
 3.2 del primer documento, va de Bag of Words/Sparse/NonSparse...
-  
+Uso:
+```bash
+java -jar TransformRaw.jar train.arff hiztegia IDFTF(YES/NO) TFTF(YES/NO) SPARSE(YES/NO) 
+```
+
 ### Test multzoa errepresentazio-espaziora egokitu
 3.3 del primer documento.
 
