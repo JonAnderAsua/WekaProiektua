@@ -129,6 +129,9 @@ public class Main {
         hiztegia.setInputFormat(test);
         test=Filter.useFilter(test, hiztegia);
 
+        FileWriter fw = new FileWriter(new File("spam.txt"));
+
+
         Evaluation newEval = new Evaluation(test);
         OneR newOneR = new OneR();
         newOneR.buildClassifier(train);
@@ -140,8 +143,10 @@ public class Main {
             if(data.attribute(0).value((int) p.predicted()).equals("spam")){
                 System.out.println(testOriginal.instance(i).stringValue(1));
                 System.out.println("\n " + i +" Iragarpena: "+data.attribute(0).value((int) p.predicted()));
+                fw.append(testOriginal.instance(i).stringValue(1)+"\n");
             }
             i++;
         }
+        fw.close();
     }
 }
