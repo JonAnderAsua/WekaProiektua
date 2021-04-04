@@ -1,6 +1,6 @@
 @relation spam_new
 
-@attribute label {ham,spam}
+@attribute label {spam,ham}
 @attribute text string
 
 @data
