@@ -13,9 +13,13 @@ public class MakeCompatible {
     public static void main(String[] args) throws Exception {
         if(args.length  !=3) {
             System.out.println("Ez duzu arguments atala behar bezala bete!");
+            /*
             for(String a : args){
+
                 System.out.println(a);
             }
+
+             */
             //Arguments atalean 3 parametro ezberdin behar ditu programa honek
             //1.parametroa jada exisistitzen den .arff fitxategia izango da (dev multzoa lortzeko)
             //2. parametroa TransformRaw-etik lortzen dugun hiztegia izango da
@@ -34,9 +38,7 @@ public class MakeCompatible {
             Instances dev= source.getDataSet();
 
             //dev multzoaren klasea definitu
-            if(dev.classIndex()==-1)
-                dev.setClassIndex(0);
-
+            dev.setClassIndex(0);
 
 
             //Orain parametro bezala (args[1]) lortu dugun hiztegia dev ean sartuko dugu FixedDictionaryStringToWordVector erabiliz
@@ -55,11 +57,6 @@ public class MakeCompatible {
             arffSaver.setDestination(new File(args[2]));
             arffSaver.setFile(new File(args[2].toString()+".arff"));
             arffSaver.writeBatch();
-
-
-
-
-
 
         }
 
