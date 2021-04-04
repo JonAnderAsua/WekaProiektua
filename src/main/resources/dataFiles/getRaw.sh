@@ -53,7 +53,7 @@ fi
 done
 
 rm spam.dev.arff
-sed -i "s/ham,spam/spam,ham/g"
+sed -i "s/ham,spam/spam,ham/g" spam_dev.arff
 
 
 echo "Converting train file"
