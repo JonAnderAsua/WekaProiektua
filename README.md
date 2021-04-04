@@ -11,10 +11,13 @@
     + [Informazio irabazian oinarritutako atributuen hautapena](#informazio-irabazian-oinarritutako-atributuen-hautapena)
     + [Ereduaren inferentzia eta itxarondako kalitatearen estimazioa](#ereduaren-inferentzia-eta-itxarondako-kalitatearen-estimazioa)
     + [Eredu iragarlea](#eredu-iragarlea)
+      - [OneR:](#oner-)
+      - [RandomForest:](#randomforest-)
     + [Dokumentazio eta atal teorikoa](#dokumentazio-eta-atal-teorikoa-1)
   * [Iragarpenak](#iragarpenak)
     + [Cosas](#cosas)
     + [Dokumentazio eta atal teorikoa](#dokumentazio-eta-atal-teorikoa-2)
+
 
 
 ## Testuen errepresentazio bektoriala
@@ -53,8 +56,16 @@ java -jar TransformRaw.jar train.arff hiztegia IDFTF(YES/NO) TFTF(YES/NO) SPARSE
 3.2 del segundo documento. Parametro ekorketa (depth, k value, numtrees?)
   
 ### Eredu iragarlea
-3.2.3 del segundo documento.
-  
+#### OneR:
+```bash
+java -jar GetOneRModel.jar BoWspam_train.arff spam_devBoW.arff oneR.model emaitzak.txt
+```
+
+#### RandomForest:
+```bash
+java -jar GetRandomForestModel.jar BoWspam_train.arff spam_devBoW.arff RandomForest.model emaitzak.txt
+```
+
 ### Dokumentazio eta atal teorikoa
   
 ---
