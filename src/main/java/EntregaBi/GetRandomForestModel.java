@@ -43,7 +43,7 @@ public class GetRandomForestModel {
             Instances train= source.getDataSet();
 
             //dev multzoaren klasea definitu
-            train.setClassIndex(0);
+            train.setClassIndex(train.numAttributes()-1);
 
             //2-Baseline modeloa sortu - OneR
             //Classifier
@@ -64,7 +64,7 @@ public class GetRandomForestModel {
                 System.out.println("dev multzoa sortzeko sartu duzun arff-aren helbidea okerra da.");
             }
             Instances dev= devSource.getDataSet();
-            dev.setClassIndex(0);
+            dev.setClassIndex(dev.numAttributes()-1);
             //1- Ez zintzoa
             Evaluation evaluatorEzZintzoa = new Evaluation(dev);
             evaluatorEzZintzoa.evaluateModel(randomF, dev);
@@ -81,7 +81,6 @@ public class GetRandomForestModel {
             fw.write(evaluatorEzZintzoa.toMatrixString());
             fw.write("\n");
             System.out.println("Ebaluazio normala eginda");
-
 
             //2- Cross Validation
             Evaluation evaluatorCross = new Evaluation(dev);
@@ -147,7 +146,6 @@ public class GetRandomForestModel {
 
             fw.flush();
             fw.close();
-
         }
 
     }

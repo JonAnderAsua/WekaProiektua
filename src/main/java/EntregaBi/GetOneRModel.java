@@ -42,7 +42,7 @@ public class GetOneRModel {
             Instances train= source.getDataSet();
 
             //dev multzoaren klasea definitu
-            train.setClassIndex(0);
+            train.setClassIndex(train.numAttributes()-1);
 
             //2-Baseline modeloa sortu - OneR
             //Classifier
@@ -63,7 +63,7 @@ public class GetOneRModel {
                 System.out.println("dev multzoa sortzeko sartu duzun arff-aren helbidea okerra da.");
             }
             Instances dev= devSource.getDataSet();
-            dev.setClassIndex(0);
+            dev.setClassIndex(dev.numAttributes()-1);
             //1- Ez zintzoa
             Evaluation evaluatorEzZintzoa = new Evaluation(dev);
             evaluatorEzZintzoa.evaluateModel(oner, dev);
