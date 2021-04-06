@@ -44,8 +44,8 @@ public class AtributuHautapena {
 
             ArffSaver arffSaver = new ArffSaver();
             arffSaver.setInstances(train);
-            arffSaver.setDestination(new File("ParamEkorketa_" + args[0]));
-            arffSaver.setFile(new File("ParamEkorketa_" + args[0]));
+            arffSaver.setDestination(new File("AtributuHautapena_" + args[0]));
+            arffSaver.setFile(new File("AtributuHautapena_" + args[0]));
             arffSaver.writeBatch();
 
 
@@ -78,8 +78,8 @@ public class AtributuHautapena {
 
             arffSaver = new ArffSaver();
             arffSaver.setInstances(dev);
-            arffSaver.setDestination(new File("ParamEkorketa_" + args[2].toString()));
-            arffSaver.setFile(new File("ParamEkorketa_" + args[2].toString()));
+            arffSaver.setDestination(new File("AtributuHautapena_" + args[2].toString()));
+            arffSaver.setFile(new File("AtributuHautapena_" + args[2].toString()));
             arffSaver.writeBatch();
 
         }
