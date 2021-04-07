@@ -48,6 +48,10 @@ public class GetRandomForestModel {
             //2-Baseline modeloa sortu - OneR
             //Classifier
             RandomForest randomF= new RandomForest();
+            randomF.setNumExecutionSlots(0);
+            randomF.setNumFeatures(40);
+            randomF.setNumIterations(100);
+            randomF.setBagSizePercent(101);
             randomF.buildClassifier(train);
 
             //3- Modeloa gorde
@@ -85,6 +89,10 @@ public class GetRandomForestModel {
             //2- Cross Validation
             Evaluation evaluatorCross = new Evaluation(dev);
             randomF = new RandomForest();
+            randomF.setNumExecutionSlots(0);
+            randomF.setNumFeatures(40);
+            randomF.setNumIterations(100);
+            randomF.setBagSizePercent(101);
             evaluatorCross.crossValidateModel(randomF, train, 10, new Random(1));
             //Fitxategian gorde kalitatearen estimazioa
             fw.write("\n");
@@ -117,6 +125,10 @@ public class GetRandomForestModel {
             Instances train1 = Filter.useFilter(train, rmpct);
 
             randomF= new RandomForest();
+            randomF.setNumExecutionSlots(0);
+            randomF.setNumFeatures(40);
+            randomF.setNumIterations(100);
+            randomF.setBagSizePercent(101);
             randomF.buildClassifier(train1);
 
             //test multzoa

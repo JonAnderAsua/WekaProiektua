@@ -2,77 +2,77 @@
 =============================================================
 EBALUAZIO NORMALA, TRAIN ENTRENAMENDU MULTZOA ETA DEV PROBA MULTZOA:
 
-Correctly Classified Instances         999               94.6919 %
-Incorrectly Classified Instances        56                5.3081 %
-Kappa statistic                          0.7748
-Mean absolute error                      0.0941
-Root mean squared error                  0.2028
-Relative absolute error                 34.5869 %
-Root relative squared error             55.0291 %
+Correctly Classified Instances        1003               95.0711 %
+Incorrectly Classified Instances        52                4.9289 %
+Kappa statistic                          0.7965
+Mean absolute error                      0.087 
+Root mean squared error                  0.1971
+Relative absolute error                 31.9835 %
+Root relative squared error             53.4706 %
 Total Number of Instances             1055     
 
 === Detailed Accuracy By Class ===
 
                  TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
-                 0,673    0,000    1,000      0,673    0,804      0,795    0,986     0,960     spam
-                 1,000    0,327    0,940      1,000    0,969      0,795    0,986     0,996     ham
-Weighted Avg.    0,947    0,274    0,950      0,947    0,943      0,795    0,986     0,990     
+                 0,713    0,003    0,976      0,713    0,824      0,810    0,980     0,945     spam
+                 0,997    0,287    0,947      0,997    0,971      0,810    0,980     0,994     ham
+Weighted Avg.    0,951    0,241    0,952      0,951    0,948      0,810    0,980     0,986     
 
 === Confusion Matrix ===
 
    a   b   <-- classified as
- 115  56 |   a = spam
-   0 884 |   b = ham
+ 122  49 |   a = spam
+   3 881 |   b = ham
 
 
 =============================================================
 KFCV-REKIN EBALUATUZ:
 
-Correctly Classified Instances        3161               97.4114 %
-Incorrectly Classified Instances        84                2.5886 %
-Kappa statistic                          0.8814
-Mean absolute error                      0.0597
-Root mean squared error                  0.1509
-Relative absolute error                 25.2277 %
-Root relative squared error             43.864  %
+Correctly Classified Instances        3176               97.8737 %
+Incorrectly Classified Instances        69                2.1263 %
+Kappa statistic                          0.9047
+Mean absolute error                      0.0536
+Root mean squared error                  0.1422
+Relative absolute error                 22.6433 %
+Root relative squared error             41.3431 %
 Total Number of Instances             3245     
 
 === Detailed Accuracy By Class ===
 
                  TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
-                 0,813    0,000    0,997      0,813    0,896      0,887    0,989     0,972     spam
-                 1,000    0,187    0,971      1,000    0,985      0,887    0,989     0,997     ham
-Weighted Avg.    0,974    0,161    0,975      0,974    0,973      0,887    0,989     0,994     
+                 0,854    0,001    0,990      0,854    0,917      0,908    0,990     0,972     spam
+                 0,999    0,146    0,977      0,999    0,988      0,908    0,990     0,998     ham
+Weighted Avg.    0,979    0,126    0,979      0,979    0,978      0,908    0,990     0,994     
 
 === Confusion Matrix ===
 
     a    b   <-- classified as
-  362   83 |    a = spam
-    1 2799 |    b = ham
+  380   65 |    a = spam
+    4 2796 |    b = ham
 
 
 =============================================================
 HOLD OUT-EKIN (%70) EBALUATUZ (TRAIN MULTZOKO INSTANTZIEKIN SOILIK):
 
-Correctly Classified Instances         951               97.6386 %
-Incorrectly Classified Instances        23                2.3614 %
-Kappa statistic                          0.892 
-Mean absolute error                      0.0651
-Root mean squared error                  0.1547
-Relative absolute error                 27.5259 %
-Root relative squared error             45.059  %
+Correctly Classified Instances         954               97.9466 %
+Incorrectly Classified Instances        20                2.0534 %
+Kappa statistic                          0.907 
+Mean absolute error                      0.0583
+Root mean squared error                  0.1453
+Relative absolute error                 24.6311 %
+Root relative squared error             42.3141 %
 Total Number of Instances              974     
 
 === Detailed Accuracy By Class ===
 
                  TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
-                 0,827    0,000    1,000      0,827    0,905      0,897    0,988     0,973     spam
-                 1,000    0,173    0,973      1,000    0,987      0,897    0,988     0,997     ham
-Weighted Avg.    0,976    0,149    0,977      0,976    0,975      0,897    0,988     0,994     
+                 0,850    0,000    1,000      0,850    0,919      0,911    0,984     0,966     spam
+                 1,000    0,150    0,977      1,000    0,988      0,911    0,984     0,995     ham
+Weighted Avg.    0,979    0,130    0,980      0,979    0,979      0,911    0,984     0,991     
 
 === Confusion Matrix ===
 
    a   b   <-- classified as
- 110  23 |   a = spam
+ 113  20 |   a = spam
    0 841 |   b = ham
 
