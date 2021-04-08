@@ -77,6 +77,17 @@ java -jar GetRandomForestModel.jar BoWspam_train.arff spam_devBoW.arff RandomFor
 
 ## Iragarpenak
 
+Para hacer las prediciones de un arff (no compatible)
+```bash
+"randomF.model" "spam_test.arff" "predictionsIrteeraARFFfitxategia.txt"
+```
+
+
+Para hacer la prediccion de una frase
+```bash
+"randomF.model" "you won cash prize, TXT 61020203 for free" "predictionsIrteeraEsaldia.txt"
+```
+
 ### Cosas
   
 ### Dokumentazio eta atal teorikoa
