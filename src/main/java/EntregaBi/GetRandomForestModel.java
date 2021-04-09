@@ -4,7 +4,6 @@ import java.io.FileWriter;
 import java.util.Random;
 
 import weka.classifiers.evaluation.Evaluation;
-import weka.classifiers.rules.OneR;
 import weka.classifiers.trees.RandomForest;
 import weka.core.Instances;
 import weka.core.converters.ConverterUtils.DataSource;
@@ -33,7 +32,6 @@ public class GetRandomForestModel {
         }
         else{
 
-            //1- Fitxategia
             DataSource source=null;
             try {
                 source = new DataSource(args[0]);
@@ -41,24 +39,19 @@ public class GetRandomForestModel {
                 System.out.println("train multzoa sortzeko sartu duzun arff-aren helbidea okerra da.");
             }
             Instances train= source.getDataSet();
+            train.setClassIndex(train.numAttributes()-1); //tipico de cargar el .arff
 
-            //dev multzoaren klasea definitu
-            train.setClassIndex(train.numAttributes()-1);
 
-            //2-Baseline modeloa sortu - OneR
-            //Classifier
             RandomForest randomF= new RandomForest();
-            randomF.setNumExecutionSlots(0);
-            randomF.setNumFeatures(40);
+            randomF.setNumExecutionSlots(0); //los parametros sacados de parametro ekorketa
+            randomF.setNumFeatures(40);      //habia empate entra varias combinaciones asi que he cogido esta
             randomF.setNumIterations(100);
             randomF.setBagSizePercent(101);
             randomF.buildClassifier(train);
 
-            //3- Modeloa gorde
             weka.core.SerializationHelper.write(args[2], randomF);
 
 
-            //4- fitxategian datuak idatzi
             FileWriter fw = new FileWriter(args[3]);
 
             DataSource devSource=null;
@@ -69,20 +62,22 @@ public class GetRandomForestModel {
             }
             Instances dev= devSource.getDataSet();
             dev.setClassIndex(dev.numAttributes()-1);
-            //1- Ez zintzoa
-            Evaluation evaluatorEzZintzoa = new Evaluation(dev);
-            evaluatorEzZintzoa.evaluateModel(randomF, dev);
+
+
+            //1- Ebaluazioa normala train eta dev fitxategiekin
+            Evaluation evalTrainDev = new Evaluation(dev);
+            evalTrainDev.evaluateModel(randomF, dev);
             //Fitxategian gorde kalitatearen estimazioa
             fw.write("\n");
             fw.write("=============================================================");
             fw.write("\n");
             fw.write("EBALUAZIO NORMALA, TRAIN ENTRENAMENDU MULTZOA ETA DEV PROBA MULTZOA:");
             fw.write("\n");
-            fw.write(evaluatorEzZintzoa.toSummaryString());
+            fw.write(evalTrainDev.toSummaryString());
             fw.write("\n");
-            fw.write(evaluatorEzZintzoa.toClassDetailsString());
+            fw.write(evalTrainDev.toClassDetailsString());
             fw.write("\n");
-            fw.write(evaluatorEzZintzoa.toMatrixString());
+            fw.write(evalTrainDev.toMatrixString());
             fw.write("\n");
             System.out.println("Ebaluazio normala eginda");
 
@@ -98,7 +93,7 @@ public class GetRandomForestModel {
             fw.write("\n");
             fw.write("=============================================================");
             fw.write("\n");
-            fw.write("KFCV-REKIN EBALUATUZ:");
+            fw.write("KFCV-REKIN EBALUATUZ (TRAIN MULTZOAN SOILIK):");
             fw.write("\n");
             fw.write(evaluatorCross.toSummaryString());
             fw.write("\n");
@@ -109,8 +104,6 @@ public class GetRandomForestModel {
             System.out.println("kfcv eginda");
 
             //3- HoldOut
-
-            //datuak nahastu
             Randomize filter = new Randomize();
             filter.setRandomSeed(0);
             filter.setInputFormat(train);

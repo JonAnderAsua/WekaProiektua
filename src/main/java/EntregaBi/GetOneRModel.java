@@ -30,9 +30,9 @@ public class GetOneRModel {
             //4. parametroa .txt fitxategi bat izango da, hemen gure modeloaren kalitatearen estimazioa gordeko dugu
 
         }
-        else{
+        else{ //el metodo es practicamente una copia de GetRandomForestModel pero mas simple
 
-            //1- Fitxategia
+
             DataSource source=null;
             try {
                 source = new DataSource(args[0]);
@@ -41,19 +41,12 @@ public class GetOneRModel {
             }
             Instances train= source.getDataSet();
 
-            //dev multzoaren klasea definitu
-            train.setClassIndex(train.numAttributes()-1);
 
-            //2-Baseline modeloa sortu - OneR
-            //Classifier
+            train.setClassIndex(train.numAttributes()-1);
             OneR oner= new OneR();
             oner.buildClassifier(train);
 
-            //3- Modeloa gorde
             weka.core.SerializationHelper.write(args[2], oner);
-
-
-            //4- fitxategian datuak idatzi
             FileWriter fw = new FileWriter(args[3]);
 
             DataSource devSource=null;
@@ -64,7 +57,7 @@ public class GetOneRModel {
             }
             Instances dev= devSource.getDataSet();
             dev.setClassIndex(dev.numAttributes()-1);
-            //1- Ez zintzoa
+            //1- Ebaluazio normala
             Evaluation evaluatorEzZintzoa = new Evaluation(dev);
             evaluatorEzZintzoa.evaluateModel(oner, dev);
             //Fitxategian gorde kalitatearen estimazioa
@@ -88,7 +81,7 @@ public class GetOneRModel {
             fw.write("\n");
             fw.write("=============================================================");
             fw.write("\n");
-            fw.write("KFCV-REKIN EBALUATUZ:");
+            fw.write("KFCV-REKIN EBALUATUZ (TRAIN MULTZOAN SOILIK):");
             fw.write("\n");
             fw.write(evaluatorCross.toSummaryString());
             fw.write("\n");
@@ -98,8 +91,6 @@ public class GetOneRModel {
             fw.write("\n");
 
             //3- HoldOut
-
-            //datuak nahastu
             Randomize filter = new Randomize();
             filter.setRandomSeed(0);
             filter.setInputFormat(train);
@@ -122,10 +113,8 @@ public class GetOneRModel {
             rmpct2.setPercentage(30);
             Instances test1 = Filter.useFilter(train, rmpct2);
 
-            //evaluation
             Evaluation evaluatorSplit = new Evaluation(train1);
             evaluatorSplit.evaluateModel(oner, test1);
-            //Fitxategian gorde kalitatearen estimazioa
             fw.write("\n");
             fw.write("=============================================================");
             fw.write("\n");

@@ -45,7 +45,7 @@ public class Predictions {
 
                 data= Filter.useFilter(data, filtroa);
                 Reorder reorder = new Reorder();
-                reorder.setAttributeIndices("2-" + data.numAttributes() + ",1");   //2-119, 1.  2-119 bitarteko atributuak goian jarriko dira eta 1 atributua (klasea dena) amaieran.
+                reorder.setAttributeIndices("2-" + data.numAttributes() + ",1");
                 reorder.setInputFormat(data);
                 data = Filter.useFilter(data, reorder);
                 data.setClassIndex(data.numAttributes()-1);
@@ -62,7 +62,7 @@ public class Predictions {
 
 
             }else{ //esaldi bat kargatu
-                ConverterUtils.DataSource dataSource = new ConverterUtils.DataSource("spam_clean.arff");
+                ConverterUtils.DataSource dataSource = new ConverterUtils.DataSource("spam_clean.arff"); //hutsi dagoen .arff behar dugu
                 data = dataSource.getDataSet();
                 data.setClassIndex(0);
                 System.out.println(data.numInstances());
@@ -70,7 +70,7 @@ public class Predictions {
                 algo.setDataset(data);
                 algo.setValue(1, args[1]);
                 algo.setMissing(0);
-                data.add(algo);
+                data.add(algo); //esaldia duen instantzia sortu eta .arff-ra gehitu
                 dataClear=data;
                 FixedDictionaryStringToWordVector filtroa = new FixedDictionaryStringToWordVector();
                 filtroa.setDictionaryFile(new File("hiztegiAtributuHautapena.txt"));
@@ -79,7 +79,7 @@ public class Predictions {
                 Evaluation eval = new Evaluation(data);
                 eval.evaluateModel(randomF, data);
                 int i = 0;
-                for (Prediction p: eval.predictions() ){
+                for (Prediction p: eval.predictions() ){   //ez da beharrezkoa for loop hau, baina agian esaldi bat baino gehiagorekin funtzionatzeko inplementatuko dugu
                     System.out.println(dataClear.instance(i).attribute(1).value(0)+ " " + data.attribute(0).value((int) p.predicted()));
                     fw.write(dataClear.instance(i).attribute(1).value(0)+ ", " + data.attribute(0).value((int) p.predicted()));
                     i++;

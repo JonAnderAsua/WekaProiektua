@@ -32,7 +32,7 @@ public class TransformRaw {
 
             StringToWordVector filter = new StringToWordVector();
             filter.setInputFormat(train);
-            filter.setLowerCaseTokens(true); //letra larriaz nahiz xeheaz emandako hitzak baliokidetzat hartzea
+            filter.setLowerCaseTokens(true);
             filter.setDictionaryFileToSaveTo(fitxategia); //el filtro necesita saber en que fitxategi se va a guardar el diccionario
             filter.setIDFTransform(args[2].toLowerCase(Locale.ROOT).equals("yes")); //Si queremos usar IDFTF
             filter.setTFTransform(args[3].toLowerCase(Locale.ROOT).equals("yes"));  //si queremos usar TFTF

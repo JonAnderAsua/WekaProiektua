@@ -36,7 +36,7 @@ public class AtributuHautapena {
             AttributeSelection attSelect = new AttributeSelection();
             InfoGainAttributeEval infoGainEval = new InfoGainAttributeEval();
             Ranker search = new Ranker();
-            search.setOptions(new String[]{"-T", "0.001"});    // estos valores nose cuales hay que poner
+            search.setOptions(new String[]{"-T", "0.001"});
             attSelect.setInputFormat(train);
             attSelect.setEvaluator(infoGainEval);
             attSelect.setSearch(search);
@@ -69,9 +69,9 @@ public class AtributuHautapena {
             hiztegia.setInputFormat(dev);
             dev = Filter.useFilter(dev, hiztegia);
 
-            // 3- FILTROA - Reorder. Reorder filtroa erabiliko dugu hau egiteko
+            // Clasea azken atributu bezala ezarri
             Reorder reorder = new Reorder();
-            reorder.setAttributeIndices("2-" + dev.numAttributes() + ",1");   //2-119, 1.  2-119 bitarteko atributuak goian jarriko dira eta 1 atributua (klasea dena) amaieran.
+            reorder.setAttributeIndices("2-" + dev.numAttributes() + ",1");
             reorder.setInputFormat(dev);
             dev = Filter.useFilter(dev, reorder);
 
