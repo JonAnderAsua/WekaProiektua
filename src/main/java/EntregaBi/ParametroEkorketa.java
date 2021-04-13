@@ -19,7 +19,18 @@ public class ParametroEkorketa {
         long startTime = System.nanoTime();
         DataSource dataSource = new DataSource(args[0]);
         Instances data = dataSource.getDataSet();
-        data.setClassIndex(data.numAttributes()-1);
+        data.setClassIndex(0);
+        int klaseMinoMaiz = Integer.MAX_VALUE;
+        int klaseMino = 0;
+        int unekoKlase = 0;
+        for (int i : data.attributeStats(data.classIndex()).nominalCounts){
+            if(i < klaseMinoMaiz){
+                klaseMino= unekoKlase;
+                klaseMinoMaiz = i;
+            }
+            unekoKlase-=-1;
+        }
+
         double max = 0.0;
         double maxTime = Double.MAX_VALUE;
         BufferedWriter bw = new BufferedWriter(new FileWriter(args[1]));
@@ -33,8 +44,8 @@ public class ParametroEkorketa {
         int maxNI = 0;
         for (int bspb = 1; bspb<10;bspb+=1) {
             randomF.setBagSizePercent(bspb);
-            for (int nesb=1;nesb<Runtime.getRuntime().availableProcessors();nesb+=1) {
-                randomF.setNumExecutionSlots(nesb);
+            //for (int nesb=1;nesb<=Runtime.getRuntime().availableProcessors();nesb+=1) {
+                //randomF.setNumExecutionSlots(nesb); Probetan beti procesadore maximo kopurua atera da parametro optimoetan
                 for (int nf=0;nf<data.numAttributes()-1;nf+=100) { //-1 agian klasea kontuan har dezakelako
                     randomF.setNumFeatures(nf);
                     for (int ni = 1; ni<50;ni+=5) {
@@ -48,31 +59,31 @@ public class ParametroEkorketa {
                         double denbora = ((double)konbinazioAmaieraDenbora- konbinazioHasieraDenbora)/1000000000;
                         String df = new DecimalFormat("#.0000").format(evaluator.pctCorrect());
                         System.out.println();
-                        System.out.format("%10s \t %10s \t%10s \t%10s %20s \t%10s", bspb, nesb, nf, ni, df, denbora);
-                        if (evaluator.pctCorrect() > max) { //si la puntuacion es mejor, pasa a ser el mejor
+                        System.out.format("%10s \t %10s \t%10s \t%10s %20s \t%10s", bspb, Runtime.getRuntime().availableProcessors(), nf, ni, df, denbora);
+                        if (evaluator.fMeasure(klaseMino) > max) { //si la puntuacion es mejor, pasa a ser el mejor
 
-                            max = evaluator.pctCorrect();
+                            max = evaluator.fMeasure(klaseMino);
                             maxTime = denbora;
                             maxBSPB = bspb;
-                            maxNESB = nesb;
+                            maxNESB = Runtime.getRuntime().availableProcessors();
                             maxNF = nf;
                             maxNI = ni;
 
-                        }else if (evaluator.pctCorrect() == max && denbora<maxTime ){ //si la puntuacion es igual, y el tiempo menor, pasa a ser el mejor
-                            max = evaluator.pctCorrect();
+                        }else if (evaluator.fMeasure(klaseMino)  == max && denbora<maxTime ){ //si la puntuacion es igual, y el tiempo menor, pasa a ser el mejor
+                            max = evaluator.fMeasure(klaseMino);
                             maxTime = denbora;
                             maxBSPB = bspb;
-                            maxNESB = nesb;
+                            maxNESB = Runtime.getRuntime().availableProcessors();
                             maxNF = nf;
                             maxNI = ni;
                         }
                         bw.newLine();
-                        bw.write("\t"  + bspb + "\t \t"  + nesb + "\t \t " + nf + "\t  " + ni + "\t   "  + df+ "\t "+ denbora);
+                        bw.write("\t"  + bspb + "\t \t"  + Runtime.getRuntime().availableProcessors() + "\t \t " + nf + "\t  " + ni + "\t   "  + df+ "\t "+ denbora);
 
                     }
 
                 }
-            }
+            //}
 
 
         }
