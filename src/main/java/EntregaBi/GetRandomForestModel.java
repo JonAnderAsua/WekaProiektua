@@ -43,8 +43,8 @@ public class GetRandomForestModel {
 
 
             RandomForest randomF= new RandomForest();
-            randomF.setNumExecutionSlots(11); //los parametros sacados de parametro ekorketa
-            randomF.setNumFeatures(400);
+            randomF.setNumExecutionSlots(Runtime.getRuntime().availableProcessors()); //parametro ekorketatik ateratako datuak
+            randomF.setNumFeatures(400);                                              //RandomForest_ekorketa.txt fitxategiak daude emaitzak
             randomF.setNumIterations(26);
             randomF.setBagSizePercent(9);
             randomF.buildClassifier(train);

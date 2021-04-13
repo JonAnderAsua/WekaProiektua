@@ -19,7 +19,7 @@ public class ParametroEkorketa {
         long startTime = System.nanoTime();
         DataSource dataSource = new DataSource(args[0]);
         Instances data = dataSource.getDataSet();
-        data.setClassIndex(0);
+        data.setClassIndex(data.numAttributes()-1);
         int klaseMinoMaiz = Integer.MAX_VALUE;
         int klaseMino = 0;
         int unekoKlase = 0;
@@ -42,11 +42,11 @@ public class ParametroEkorketa {
         int maxNESB = 0;
         int maxNF = 0;
         int maxNI = 0;
-        for (int bspb = 1; bspb<10;bspb+=1) {
+        for (int bspb = 1; bspb<10;bspb+=2) { //10etik gora badoa exekuzio denbora asko handitzen da
             randomF.setBagSizePercent(bspb);
             //for (int nesb=1;nesb<=Runtime.getRuntime().availableProcessors();nesb+=1) {
                 //randomF.setNumExecutionSlots(nesb); Probetan beti procesadore maximo kopurua atera da parametro optimoetan
-                for (int nf=0;nf<data.numAttributes()-1;nf+=100) { //-1 agian klasea kontuan har dezakelako
+                for (int nf=0;nf<data.numAttributes()-1;nf+=200) { //-1 agian klasea kontuan har dezakelako
                     randomF.setNumFeatures(nf);
                     for (int ni = 1; ni<50;ni+=5) {
                         long konbinazioHasieraDenbora = System.nanoTime();
@@ -57,9 +57,8 @@ public class ParametroEkorketa {
                         evaluator.crossValidateModel(randomF, data, 10, new Random(1));
                         long konbinazioAmaieraDenbora = System.nanoTime();
                         double denbora = ((double)konbinazioAmaieraDenbora- konbinazioHasieraDenbora)/1000000000;
-                        String df = new DecimalFormat("#.0000").format(evaluator.pctCorrect());
                         System.out.println();
-                        System.out.format("%10s \t %10s \t%10s \t%10s %20s \t%10s", bspb, Runtime.getRuntime().availableProcessors(), nf, ni, df, denbora);
+                        System.out.format("%10s \t %10s \t%10s \t%10s %20s \t%10s", bspb, Runtime.getRuntime().availableProcessors(), nf, ni, evaluator.fMeasure(klaseMino), denbora);
                         if (evaluator.fMeasure(klaseMino) > max) { //si la puntuacion es mejor, pasa a ser el mejor
 
                             max = evaluator.fMeasure(klaseMino);
@@ -78,7 +77,7 @@ public class ParametroEkorketa {
                             maxNI = ni;
                         }
                         bw.newLine();
-                        bw.write("\t"  + bspb + "\t \t"  + Runtime.getRuntime().availableProcessors() + "\t \t " + nf + "\t  " + ni + "\t   "  + df+ "\t "+ denbora);
+                        bw.write("\t"  + bspb + "\t \t"  + Runtime.getRuntime().availableProcessors() + "\t \t " + nf + "\t  " + ni + "\t   "  + evaluator.fMeasure(klaseMino)+ "\t "+ denbora);
 
                     }
 
