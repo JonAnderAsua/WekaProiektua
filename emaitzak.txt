@@ -2,31 +2,31 @@
 =============================================================
 EBALUAZIO NORMALA, TRAIN ENTRENAMENDU MULTZOA ETA DEV PROBA MULTZOA:
 
-Correctly Classified Instances        1003               95.0711 %
-Incorrectly Classified Instances        52                4.9289 %
-Kappa statistic                          0.7965
-Mean absolute error                      0.087 
-Root mean squared error                  0.1971
-Relative absolute error                 31.9835 %
-Root relative squared error             53.4706 %
+Correctly Classified Instances         975               92.4171 %
+Incorrectly Classified Instances        80                7.5829 %
+Kappa statistic                          0.6599
+Mean absolute error                      0.1137
+Root mean squared error                  0.2506
+Relative absolute error                 41.8085 %
+Root relative squared error             67.9947 %
 Total Number of Instances             1055     
 
 === Detailed Accuracy By Class ===
 
                  TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
-                 0,713    0,003    0,976      0,713    0,824      0,810    0,980     0,945     spam
-                 0,997    0,287    0,947      0,997    0,971      0,810    0,980     0,994     ham
-Weighted Avg.    0,951    0,241    0,952      0,951    0,948      0,810    0,980     0,986     
+                 0,544    0,002    0,979      0,544    0,699      0,697    0,949     0,848     spam
+                 0,998    0,456    0,919      0,998    0,957      0,697    0,949     0,985     ham
+Weighted Avg.    0,924    0,383    0,929      0,924    0,915      0,697    0,949     0,963     
 
 === Confusion Matrix ===
 
    a   b   <-- classified as
- 122  49 |   a = spam
-   3 881 |   b = ham
+  93  78 |   a = spam
+   2 882 |   b = ham
 
 
 =============================================================
-KFCV-REKIN EBALUATUZ:
+KFCV-REKIN EBALUATUZ (TRAIN MULTZOAN SOILIK):
 
 Correctly Classified Instances        3176               97.8737 %
 Incorrectly Classified Instances        69                2.1263 %

@@ -43,10 +43,10 @@ public class GetRandomForestModel {
 
 
             RandomForest randomF= new RandomForest();
-            randomF.setNumExecutionSlots(0); //los parametros sacados de parametro ekorketa
-            randomF.setNumFeatures(40);      //habia empate entra varias combinaciones asi que he cogido esta
-            randomF.setNumIterations(100);
-            randomF.setBagSizePercent(101);
+            randomF.setNumExecutionSlots(11); //los parametros sacados de parametro ekorketa
+            randomF.setNumFeatures(400);
+            randomF.setNumIterations(26);
+            randomF.setBagSizePercent(9);
             randomF.buildClassifier(train);
 
             weka.core.SerializationHelper.write(args[2], randomF);
