@@ -2,27 +2,27 @@
 =============================================================
 EBALUAZIO NORMALA, TRAIN ENTRENAMENDU MULTZOA ETA DEV PROBA MULTZOA:
 
-Correctly Classified Instances         975               92.4171 %
-Incorrectly Classified Instances        80                7.5829 %
-Kappa statistic                          0.6599
-Mean absolute error                      0.1137
-Root mean squared error                  0.2506
-Relative absolute error                 41.8085 %
-Root relative squared error             67.9947 %
+Correctly Classified Instances         990               93.8389 %
+Incorrectly Classified Instances        65                6.1611 %
+Kappa statistic                          0.7422
+Mean absolute error                      0.1059
+Root mean squared error                  0.2336
+Relative absolute error                 38.9409 %
+Root relative squared error             63.3752 %
 Total Number of Instances             1055     
 
 === Detailed Accuracy By Class ===
 
                  TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
-                 0,544    0,002    0,979      0,544    0,699      0,697    0,949     0,848     spam
-                 0,998    0,456    0,919      0,998    0,957      0,697    0,949     0,985     ham
-Weighted Avg.    0,924    0,383    0,929      0,924    0,915      0,697    0,949     0,963     
+                 0,661    0,008    0,942      0,661    0,777      0,758    0,956     0,870     spam
+                 0,992    0,339    0,938      0,992    0,964      0,758    0,956     0,987     ham
+Weighted Avg.    0,938    0,285    0,939      0,938    0,934      0,758    0,956     0,968     
 
 === Confusion Matrix ===
 
    a   b   <-- classified as
-  93  78 |   a = spam
-   2 882 |   b = ham
+ 113  58 |   a = spam
+   7 877 |   b = ham
 
 
 =============================================================

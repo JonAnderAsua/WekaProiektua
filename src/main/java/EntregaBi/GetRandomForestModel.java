@@ -44,9 +44,10 @@ public class GetRandomForestModel {
 
             RandomForest randomF= new RandomForest();
             randomF.setNumExecutionSlots(Runtime.getRuntime().availableProcessors()); //parametro ekorketatik ateratako datuak
-            randomF.setNumFeatures(400);                                              //RandomForest_ekorketa.txt fitxategiak daude emaitzak
+            randomF.setNumFeatures(200);                                              //RandomForest_ekorketa.txt fitxategiak daude emaitzak
             randomF.setNumIterations(26);
-            randomF.setBagSizePercent(9);
+            randomF.setBagSizePercent(16);
+            randomF.setMaxDepth(50);
             randomF.buildClassifier(train);
 
             weka.core.SerializationHelper.write(args[2], randomF);
