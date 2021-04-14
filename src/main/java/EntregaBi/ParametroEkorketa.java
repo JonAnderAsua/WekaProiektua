@@ -52,8 +52,6 @@ public class ParametroEkorketa {
                     for (int ni = 1; ni<50;ni+=5) {
                         long konbinazioHasieraDenbora = System.nanoTime();
                         randomF.setNumIterations(ni);
-                        randomF.buildClassifier(data);
-
                         Evaluation evaluator = new Evaluation(data);
                         evaluator.crossValidateModel(randomF, data, 10, new Random(1));
                         long konbinazioAmaieraDenbora = System.nanoTime();
