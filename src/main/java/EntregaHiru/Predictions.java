@@ -39,7 +39,7 @@ public class Predictions {
                 data.setClassIndex(data.numAttributes() - 1);
                 dataClear = data;
                 FixedDictionaryStringToWordVector filtroa = new FixedDictionaryStringToWordVector();
-                filtroa.setDictionaryFile(new File("hiztegiAtributuHautapena.txt"));
+                filtroa.setDictionaryFile(new File("hiztegia.txt"));//esto habria que cambiarlo por un argumento
                 filtroa.setInputFormat(data);
 
 
@@ -73,7 +73,7 @@ public class Predictions {
                 data.add(algo); //esaldia duen instantzia sortu eta .arff-ra gehitu
                 dataClear=data;
                 FixedDictionaryStringToWordVector filtroa = new FixedDictionaryStringToWordVector();
-                filtroa.setDictionaryFile(new File("hiztegiAtributuHautapena.txt"));
+                filtroa.setDictionaryFile(new File("hiztegia.txt")); //esto habria que cambiarlo por un argumento
                 filtroa.setInputFormat(data);
                 data= Filter.useFilter(data, filtroa);
                 Evaluation eval = new Evaluation(data);
