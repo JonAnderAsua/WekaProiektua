@@ -54,10 +54,9 @@ public class ParametroEkorketaIragarpenDenbora {
             for (int nf=0;nf<data.numAttributes()-1;nf+=200) { //-1 agian klasea kontuan har dezakelako
                 randomF.setNumFeatures(nf);
                 for (int ni = 1; ni<50;ni+=5) {
-                    long konbinazioHasieraDenbora = System.nanoTime();
                     randomF.setNumIterations(ni);
                     randomF.buildClassifier(data);
-
+                    long konbinazioHasieraDenbora = System.nanoTime();
                     Evaluation evaluator = new Evaluation(data);
                     evaluator.evaluateModel(randomF, dev);
                     long konbinazioAmaieraDenbora = System.nanoTime();
