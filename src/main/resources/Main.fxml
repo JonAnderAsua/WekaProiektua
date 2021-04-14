@@ -2,21 +2,42 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="356.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="446.0" prefWidth="778.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UIControllers.MainController">
    <children>
-      <TextField fx:id="textLabelId" layoutX="63.0" layoutY="36.0" prefHeight="97.0" prefWidth="474.0" text="Iragarri nahi den testua hemen sartu mesedez..." />
-      <Label layoutX="84.0" layoutY="150.0" prefHeight="29.0" prefWidth="321.0" text="SPAM iragarri badu asmatzeko probabilitatea:" />
-      <Label fx:id="ehunekoSPAMId" layoutX="416.0" layoutY="157.0" text="\%98.5" />
-      <Label layoutX="63.0" layoutY="192.0" text="Ez SPAM iragarri badu asmatzeko probabilitatea:" />
-      <Label fx:id="ehunekoEzSPAMId" layoutX="416.0" layoutY="192.0" text="\%99.3" />
-      <Label layoutX="63.0" layoutY="235.0" text="Sartutako testuaren iragarritako klasea hurrengoa da:" />
-      <Label fx:id="iragarpenaLabelId" layoutX="440.0" layoutY="235.0" />
-      <Button fx:id="iragarpenaButton" layoutX="63.0" layoutY="301.0" mnemonicParsing="false" onAction="#iragarpenaClick" text="Iragarpena egin" />
-      <Button fx:id="ezabatuButton" layoutX="245.0" layoutY="301.0" mnemonicParsing="false" onAction="#ezabatuClick" text="Testua ezabatu" />
-      <Button fx:id="fitxategiaSartuButton" layoutX="416.0" layoutY="301.0" mnemonicParsing="false" onAction="#fitxategiaSartuClick" text="Fitxategi bat sartu" />
+      <StackPane layoutX="-4.0" layoutY="42.0" prefHeight="401.0" prefWidth="608.0">
+         <children>
+            <AnchorPane fx:id="IragarpenakPaneId" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF;" >
+               <fx:include fx:id="IragarpenakId" source="./Iragarpenak.fxml" />
+            </AnchorPane>
+            <AnchorPane fx:id="EstatistikakPaneId" prefHeight="363.0" prefWidth="594.0" style="-fx-background-color: #FFFFFF;" >
+               <fx:include fx:id="EstatistikakId" source="./Estatistikak.fxml" />
+            </AnchorPane>
+         </children>
+      </StackPane>
+      <Label prefHeight="84.0" prefWidth="600.0" style="-fx-background-color: #ae0099;" />
+      <Label layoutX="149.0" layoutY="14.0" prefHeight="56.0" prefWidth="302.0" text="SPAM edo Ez SPAM Iragarlea" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <VBox layoutX="600.0" prefHeight="453.0" prefWidth="179.0" style="-fx-background-color: #ae0099;">
+         <children>
+            <Button fx:id="iragarpenaPestañaId" mnemonicParsing="false" onAction="#iragarpenakPestañaClick" prefHeight="60.0" prefWidth="179.0" style="-fx-background-color: #ae0099;" text="Iragarpenak" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="datuakPestañaId" mnemonicParsing="false" onAction="#datuakPestañaClick" prefHeight="86.0" prefWidth="189.0" style="-fx-background-color: #ae0099;" text="Datu Estatistikoak" textAlignment="CENTER" textFill="#fcfcfc" wrapText="true">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
    </children>
 </AnchorPane>
