@@ -35,18 +35,19 @@ public class ParametroEkorketa {
         double maxTime = Double.MAX_VALUE;
         BufferedWriter bw = new BufferedWriter(new FileWriter(args[1]));
         bw.newLine();
-        bw.write("bagSizePercent numExecutionSlots numFeatures numIterations CORRECT DENBORA");
-        System.out.println("bagSizePercent numExecutionSlots numFeatures numIterations \t\tCORRECT \t DENBORA(s)");
+        bw.write("bagSizePercent maxDepth numFeatures numIterations CORRECT DENBORA");
+        System.out.println("bagSizePercent maxDepth numFeatures numIterations \t\tCORRECT \t DENBORA(s)");
         RandomForest randomF= new RandomForest();
+        randomF.setNumExecutionSlots(Runtime.getRuntime().availableProcessors());
         int maxBSPB = 0;
-        int maxNESB = 0;
+        int maxMD = 0;
         int maxNF = 0;
         int maxNI = 0;
-        for (int bspb = 1; bspb<10;bspb+=2) { //10etik gora badoa exekuzio denbora asko handitzen da
+        for (int bspb = 1; bspb<20;bspb+=5) { //10etik gora badoa exekuzio denbora asko handitzen da
             randomF.setBagSizePercent(bspb);
-            //for (int nesb=1;nesb<=Runtime.getRuntime().availableProcessors();nesb+=1) {
-                //randomF.setNumExecutionSlots(nesb); Probetan beti procesadore maximo kopurua atera da parametro optimoetan
-                for (int nf=0;nf<data.numAttributes()-1;nf+=200) { //-1 agian klasea kontuan har dezakelako
+            for (int md=10;md<=60;md+=10){ //beste probetan ikusi dugu limitea 60 baino gehiago izanik puntuazioa ez dela aldatzen, beraz, ez da inoiz 100-era iristen
+                randomF.setMaxDepth(md);
+                for (int nf=0;nf<data.numAttributes();nf+=200) { //-1 agian klasea kontuan har dezakelako
                     randomF.setNumFeatures(nf);
                     for (int ni = 1; ni<50;ni+=5) {
                         long konbinazioHasieraDenbora = System.nanoTime();
@@ -58,13 +59,13 @@ public class ParametroEkorketa {
                         long konbinazioAmaieraDenbora = System.nanoTime();
                         double denbora = ((double)konbinazioAmaieraDenbora- konbinazioHasieraDenbora)/1000000000;
                         System.out.println();
-                        System.out.format("%10s \t %10s \t%10s \t%10s %20s \t%10s", bspb, Runtime.getRuntime().availableProcessors(), nf, ni, evaluator.fMeasure(klaseMino), denbora);
+                        System.out.format("%10s \t %10s \t%10s \t%10s %20s \t%10s", bspb, md, nf, ni, evaluator.fMeasure(klaseMino), denbora);
                         if (evaluator.fMeasure(klaseMino) > max) { //si la puntuacion es mejor, pasa a ser el mejor
 
                             max = evaluator.fMeasure(klaseMino);
                             maxTime = denbora;
                             maxBSPB = bspb;
-                            maxNESB = Runtime.getRuntime().availableProcessors();
+                            maxMD = md;
                             maxNF = nf;
                             maxNI = ni;
 
@@ -72,23 +73,23 @@ public class ParametroEkorketa {
                             max = evaluator.fMeasure(klaseMino);
                             maxTime = denbora;
                             maxBSPB = bspb;
-                            maxNESB = Runtime.getRuntime().availableProcessors();
+                            maxMD = md;
                             maxNF = nf;
                             maxNI = ni;
                         }
                         bw.newLine();
-                        bw.write("\t"  + bspb + "\t \t"  + Runtime.getRuntime().availableProcessors() + "\t \t " + nf + "\t  " + ni + "\t   "  + evaluator.fMeasure(klaseMino)+ "\t "+ denbora);
+                        bw.write("\t"  + bspb + "\t \t"  + md + "\t \t " + nf + "\t  " + ni + "\t   "  + evaluator.fMeasure(klaseMino)+ "\t "+ denbora);
 
                     }
 
                 }
-            //}
+            }
 
 
         }
         long stopTime = System.nanoTime();
         bw.write("\n Balio hoberenak: \n");
-        bw.write("BSPB = " + maxBSPB +  " NESB = " + maxNESB + " NF = " + maxNF + " NI = " +maxNI + " hurrengo puntuazioarekin " + max + " eta " + maxTime + " segundu behar izan ditu\n");
+        bw.write("BSPB = " + maxBSPB +  " MD = " + maxMD + " NF = " + maxNF + " NI = " +maxNI + " hurrengo puntuazioarekin " + max + " eta " + maxTime + " segundu behar izan ditu\n");
         bw.write("Exekuzio denbora: " + ((double)stopTime-startTime)/1000000000 + " segundu");
         System.out.println("Exekuzio denbora: " + ((double)stopTime-startTime)/1000000000);
         bw.flush();
