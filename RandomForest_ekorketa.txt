@@ -1,5 +1,5 @@
 
-bagSizePercent numExecutionSlots numFeatures numIterations CORRECT DENBORA
+bagSizePercent maxDepth numFeatures numIterations CORRECT DENBORA
 	1	 	10	 	 0	  1	   0.15185185185185185	 0.3176713
 	1	 	10	 	 0	  6	   0.14522821576763484	 0.1875816
 	1	 	10	 	 0	  11	   0.004484304932735426	 0.2298705
@@ -1201,5 +1201,5 @@ bagSizePercent numExecutionSlots numFeatures numIterations CORRECT DENBORA
 	16	 	60	 	 800	  41	   0.8543922984356197	 32.7196988
 	16	 	60	 	 800	  46	   0.8526570048309179	 35.8733137
  Balio hoberenak: 
-BSPB = 16 NESB = 50 NF = 200 NI = 26 hurrengo puntuazioarekin 0.8803945745992602 eta 7.0503651 segundu behar izan ditu
+BSPB = 16 MD = 50 NF = 200 NI = 26 hurrengo puntuazioarekin 0.8803945745992602 eta 7.0503651 segundu behar izan ditu
 Exekuzio denbora: 5746.0789384 segundu
