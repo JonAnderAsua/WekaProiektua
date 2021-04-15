@@ -69,11 +69,8 @@ public class GetRandomForestModel {
             Evaluation evalTrainDev = new Evaluation(dev);
             evalTrainDev.evaluateModel(randomF, dev);
             //Fitxategian gorde kalitatearen estimazioa
-            fw.write("\n");
-            fw.write("=============================================================");
-            fw.write("\n");
-            fw.write("EBALUAZIO NORMALA, TRAIN ENTRENAMENDU MULTZOA ETA DEV PROBA MULTZOA:");
-            fw.write("\n");
+            fw.write("\n=============================================================\n");
+            fw.write("EBALUAZIO NORMALA, TRAIN ENTRENAMENDU MULTZOA ETA DEV PROBA MULTZOA:\n");
             fw.write(evalTrainDev.toSummaryString());
             fw.write("\n");
             fw.write(evalTrainDev.toClassDetailsString());
@@ -85,24 +82,23 @@ public class GetRandomForestModel {
             //2- Cross Validation
             Evaluation evaluatorCross = new Evaluation(dev);
             randomF = new RandomForest();
-            randomF.setNumExecutionSlots(0);
-            randomF.setNumFeatures(40);
-            randomF.setNumIterations(100);
-            randomF.setBagSizePercent(101);
+            randomF.setNumExecutionSlots(Runtime.getRuntime().availableProcessors()); //parametro ekorketatik ateratako datuak
+            randomF.setNumFeatures(200);                                              //RandomForest_ekorketa.txt fitxategiak daude emaitzak
+            randomF.setNumIterations(26);
+            randomF.setBagSizePercent(16);
+            randomF.setMaxDepth(50);
+            randomF.buildClassifier(train);
             evaluatorCross.crossValidateModel(randomF, train, 10, new Random(1));
             //Fitxategian gorde kalitatearen estimazioa
-            fw.write("\n");
-            fw.write("=============================================================");
-            fw.write("\n");
-            fw.write("KFCV-REKIN EBALUATUZ (TRAIN MULTZOAN SOILIK):");
-            fw.write("\n");
+            fw.write("\n=============================================================\n");
+            fw.write("KFCV-REKIN EBALUATUZ (TRAIN MULTZOAN SOILIK):\n");
             fw.write(evaluatorCross.toSummaryString());
             fw.write("\n");
             fw.write(evaluatorCross.toClassDetailsString());
             fw.write("\n");
             fw.write(evaluatorCross.toMatrixString());
             fw.write("\n");
-            System.out.println("kfcv eginda");
+            System.out.println("10fcv eginda");
 
             //3- HoldOut
             Randomize filter = new Randomize();
@@ -119,11 +115,12 @@ public class GetRandomForestModel {
             Instances train1 = Filter.useFilter(train, rmpct);
 
             randomF= new RandomForest();
-            randomF.setNumExecutionSlots(0);
-            randomF.setNumFeatures(40);
-            randomF.setNumIterations(100);
-            randomF.setBagSizePercent(101);
-            randomF.buildClassifier(train1);
+            randomF.setNumExecutionSlots(Runtime.getRuntime().availableProcessors()); //parametro ekorketatik ateratako datuak
+            randomF.setNumFeatures(200);                                              //RandomForest_ekorketa.txt fitxategiak daude emaitzak
+            randomF.setNumIterations(26);
+            randomF.setBagSizePercent(16);
+            randomF.setMaxDepth(50);
+            randomF.buildClassifier(train);
 
             //test multzoa
             RemovePercentage rmpct2 = new RemovePercentage();
@@ -136,11 +133,8 @@ public class GetRandomForestModel {
             Evaluation evaluatorSplit = new Evaluation(train1);
             evaluatorSplit.evaluateModel(randomF, test1);
             //Fitxategian gorde kalitatearen estimazioa
-            fw.write("\n");
-            fw.write("=============================================================");
-            fw.write("\n");
-            fw.write("HOLD OUT-EKIN (%70) EBALUATUZ (TRAIN MULTZOKO INSTANTZIEKIN SOILIK):");
-            fw.write("\n");
+            fw.write("\n=============================================================\n");
+            fw.write("HOLD OUT-EKIN (%70) EBALUATUZ (TRAIN MULTZOKO INSTANTZIEKIN SOILIK):\n");
             fw.write(evaluatorSplit.toSummaryString());
             fw.write("\n");
             fw.write(evaluatorSplit.toClassDetailsString());

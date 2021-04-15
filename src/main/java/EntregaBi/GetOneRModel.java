@@ -61,11 +61,8 @@ public class GetOneRModel {
             Evaluation evaluatorEzZintzoa = new Evaluation(dev);
             evaluatorEzZintzoa.evaluateModel(oner, dev);
             //Fitxategian gorde kalitatearen estimazioa
-            fw.write("\n");
-            fw.write("=============================================================");
-            fw.write("\n");
-            fw.write("EBALUAZIO NORMALA, TRAIN ENTRENAMENDU MULTZOA ETA DEV PROBA MULTZOA:");
-            fw.write("\n");
+            fw.write("\n=============================================================\n");
+            fw.write("EBALUAZIO NORMALA, TRAIN ENTRENAMENDU MULTZOA ETA DEV PROBA MULTZOA:\n");
             fw.write(evaluatorEzZintzoa.toSummaryString());
             fw.write("\n");
             fw.write(evaluatorEzZintzoa.toClassDetailsString());
@@ -78,11 +75,8 @@ public class GetOneRModel {
             oner = new OneR();
             evaluatorCross.crossValidateModel(oner, train, 10, new Random(1));
             //Fitxategian gorde kalitatearen estimazioa
-            fw.write("\n");
-            fw.write("=============================================================");
-            fw.write("\n");
-            fw.write("KFCV-REKIN EBALUATUZ (TRAIN MULTZOAN SOILIK):");
-            fw.write("\n");
+            fw.write("\n=============================================================\n");
+            fw.write("KFCV-REKIN EBALUATUZ (TRAIN MULTZOAN SOILIK):\n");
             fw.write(evaluatorCross.toSummaryString());
             fw.write("\n");
             fw.write(evaluatorCross.toClassDetailsString());
@@ -115,11 +109,8 @@ public class GetOneRModel {
 
             Evaluation evaluatorSplit = new Evaluation(train1);
             evaluatorSplit.evaluateModel(oner, test1);
-            fw.write("\n");
-            fw.write("=============================================================");
-            fw.write("\n");
-            fw.write("HOLD OUT-EKIN (%70) EBALUATUZ (TRAIN MULTZOKO INSTANTZIEKIN SOILIK):");
-            fw.write("\n");
+            fw.write("\n=============================================================\n");
+            fw.write("HOLD OUT-EKIN (%70) EBALUATUZ (TRAIN MULTZOKO INSTANTZIEKIN SOILIK):\n");
             fw.write(evaluatorSplit.toSummaryString());
             fw.write("\n");
             fw.write(evaluatorSplit.toClassDetailsString());
