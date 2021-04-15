@@ -35,8 +35,8 @@ public class ParametroEkorketa {
         double maxTime = Double.MAX_VALUE;
         BufferedWriter bw = new BufferedWriter(new FileWriter(args[1]));
         bw.newLine();
-        bw.write("bagSizePercent maxDepth numFeatures numIterations CORRECT DENBORA");
-        System.out.println("bagSizePercent maxDepth numFeatures numIterations \t\tCORRECT \t DENBORA(s)");
+        bw.write("bagSizePercent maxDepth numFeatures numIterations FMEASURE DENBORA");
+        System.out.println("bagSizePercent maxDepth numFeatures numIterations \t\tFMEASURE \t DENBORA(s)");
         RandomForest randomF= new RandomForest();
         randomF.setNumExecutionSlots(Runtime.getRuntime().availableProcessors());
         int maxBSPB = 0;
