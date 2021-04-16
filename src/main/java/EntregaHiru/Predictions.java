@@ -43,7 +43,7 @@ public class Predictions {
          */
 
 
-        if (args.length== 3){
+        if (args.length== 4){
             RandomForest randomF = (RandomForest) weka.core.SerializationHelper.read(args[0]);
             File file;
             FileWriter fw = new FileWriter(new File(args[2]));
@@ -102,6 +102,12 @@ public class Predictions {
                 }
             }
         fw.close();
+
+        }else {
+            System.out.println("Ez duzu arguments atala behar bezala bete!");
+            System.out.println("Erabilerak:");
+            System.out.println("Lehenengoa: java -jar Predictions.jar modeloa.model test.arff emaitzak.txt hiztegia");
+            System.out.println("Bigarrena: java -jar modeloa.model \"Ebaluatu nahi den esaldia\" emaitzak.txt hiztegia");
 
         }
 

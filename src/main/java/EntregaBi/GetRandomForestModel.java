@@ -23,7 +23,8 @@ public class GetRandomForestModel {
 
         if(args.length != 4) {
             System.out.println("Ez duzu arguments atala behar bezala bete!");
-            //Programa honek 3 parametro ezberdin beharko ditu
+            System.out.println("Erabilera:");
+            System.out.println("java -jar GetRandomForestModel.jar train.arff dev.arff modeloa.model emaitzak.txt ");            //Programa honek 3 parametro ezberdin beharko ditu
             //1. parametroa train multzorako erabiliko den .arff fitxategia
             //2. parametroa dev multzorako erabiliko den .arff fitxategia
             //3. parametroa modeloa gordetzeko erabiliko dugun helbidea, .model izan behar da
