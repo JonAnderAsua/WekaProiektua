@@ -13,10 +13,26 @@ import weka.filters.unsupervised.attribute.Reorder;
 import java.io.File;
 import java.io.FileWriter;
 
+/**
+ * <h1>Class for predicting a raw text or a set of texts inside a '.arff' file using a RandomForest classifier</h1>
+ * @version 2021/4/16
+ *
+ * <b>This class loads a RandomForest classifier and it uses it to predict the class of a simple raw text or a set of texts in a '.arff' file.</b>
+ * @see "test"
+ *
+ * */
+
+
+
 
 public class Predictions {
 
 
+    /**
+     *
+     * @param args list of arguments as an array of strings
+     * @throws Exception
+     */
 
     public static void main (String[] args) throws Exception {
         /*
