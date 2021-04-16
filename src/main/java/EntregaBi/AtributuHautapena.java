@@ -22,7 +22,8 @@ public class AtributuHautapena {
     public static void main(String[] args) throws Exception {
         if(args.length  !=3) {
             System.out.println("Ez duzu arguments atala behar bezala bete!");
-            /*
+            System.out.println("Erabilera:");
+            System.out.println("java -jar AtributuHautapena.jar train.arff hiztegia dev/test.arff ");            /*
                 1. Parametroa BoW motako train arff fitxategia
                 2. Parametroa Hiztegia gordetzeko fitxategia
                 3. Dev/Test .arff fitxategia
