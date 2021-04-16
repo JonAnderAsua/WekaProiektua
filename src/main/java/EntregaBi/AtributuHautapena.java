@@ -66,7 +66,7 @@ public class AtributuHautapena {
             dev.setClassIndex(0);
 
             FixedDictionaryStringToWordVector hiztegia = new FixedDictionaryStringToWordVector();
-            hiztegia.setDictionaryFile(new File(args[1].toString()));
+            hiztegia.setDictionaryFile(new File(args[1]));
             hiztegia.setInputFormat(dev);
             dev = Filter.useFilter(dev, hiztegia);
 

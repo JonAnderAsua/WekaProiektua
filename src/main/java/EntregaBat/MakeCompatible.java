@@ -55,7 +55,7 @@ public class MakeCompatible {
             ArffSaver arffSaver = new ArffSaver();
             arffSaver.setInstances(dev);
             arffSaver.setDestination(new File(args[2]));
-            arffSaver.setFile(new File(args[2].toString()+".arff"));
+            arffSaver.setFile(new File(args[2]));
             arffSaver.writeBatch();
 
         }
