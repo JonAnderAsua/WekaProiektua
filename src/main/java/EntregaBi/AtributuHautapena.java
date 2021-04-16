@@ -20,6 +20,7 @@ public class AtributuHautapena {
 
     //Ahora la clase va a estar en el ultimo atributo
     public static void main(String[] args) throws Exception {
+        System.out.println(args.length);
         if(args.length  !=3) {
             System.out.println("Ez duzu arguments atala behar bezala bete!");
             System.out.println("Erabilera:");
@@ -30,6 +31,7 @@ public class AtributuHautapena {
              */
         }
         else {
+            System.out.println(args[0]);
 
             DataSource dataSource = new DataSource(args[0]);
             Instances train = dataSource.getDataSet();

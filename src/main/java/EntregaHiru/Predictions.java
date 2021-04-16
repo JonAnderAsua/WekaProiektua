@@ -14,12 +14,15 @@ import java.io.File;
 import java.io.FileWriter;
 
 /**
- * <h1>Class for predicting a raw text or a set of texts inside a '.arff' file using a RandomForest classifier</h1>
- * @version 2021/4/16
+ * Class for predicting a raw text or a set of texts inside a '.arff' file using a RandomForest classifier <br>
  *
- * <b>This class loads a RandomForest classifier and it uses it to predict the class of a simple raw text or a set of texts in a '.arff' file.</b>
- * @see "test"
- *
+ * This class loads a RandomForest classifier and it uses it to predict the class of a simple raw text or a set of texts in a '.arff' file. <br>
+ * <br>
+ * Arguments needed for main method: <br>
+ * 1 - RandomForest classifier '.model' file directory. <br>
+ * 2 - Raw text or path to a set of texts in a '.arff' file. <br>
+ * 3 - Path desired to store the output file (where predictions are written). <br>
+ * @version 2021/4/16 <br> <br>
  * */
 
 
