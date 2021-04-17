@@ -11,8 +11,29 @@ import java.io.FileWriter;
 import java.text.DecimalFormat;
 import java.util.Random;
 
+/**
+ * A class to find the optimal parameters of a RandomForest for a desired set of data in a '.arff' file.  <br>
+ *
+ * This class reads the '.arff' file obtained with class "AtributuHautapena" and uses it to find the optimal parameters of a RandomForest classifier.
+ * The class uses the 'fmeasure' score and the runtime to select the optimal options. The optimal parameters should have a high score and a reasonable low runtime.<br>
+ * <br>
+ * Arguments needed for main method: <br>
+ * 1 - Path to the existing '.arff' file <br>
+ * 2 - Path to the output file where the results will be written.
+ * <br> <br>
+ * For more information about the input '.arff' file:
+ * @see EntregaBi.AtributuHautapena
+ * */
+
 public class ParametroEkorketa {
     //TODO
+    /**
+     *
+     * @param args list of arguments as an array of strings
+     * @throws Exception
+     */
+
+
 
 
     public static void main(String[] args) throws Exception {
