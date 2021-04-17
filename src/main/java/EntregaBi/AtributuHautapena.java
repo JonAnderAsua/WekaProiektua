@@ -14,12 +14,33 @@ import weka.filters.unsupervised.attribute.Reorder;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
+/**
+ * A class to select the optimal attributes of an '.arff' file and store it's new dictionary.  <br>
+ *
+ * This class reads the train '.arff' file obtained with class "TransformRaw" and uses the dev/test '.arff' file (Raw text, NOT vectorized)
+ * to select the best attributes for the data.
+ * <br>
+ * Arguments needed for main method: <br>
+ * 1 - Path to the existing train '.arff' file obtained with class "TransformRaw". <br>
+ * 2 - Path to the file where the dictionary will be written.
+ * 3 - Path to the test/dev '.arff' file with raw text.
+ * <br> <br>
+ * For more information about the input train '.arff' file:
+ * @see EntregaBat.TransformRaw
+ * */
 
 public class AtributuHautapena {
 
 
+
     //Ahora la clase va a estar en el ultimo atributo
     public static void main(String[] args) throws Exception {
+        /**
+         *
+         * @param args list of arguments as an array of strings
+         * @throws Exception
+         */
+
         System.out.println(args.length);
         if(args.length  !=3) {
             System.out.println("Ez duzu arguments atala behar bezala bete!");

@@ -14,7 +14,7 @@ import java.io.File;
 import java.io.FileWriter;
 
 /**
- * Class for predicting a raw text or a set of texts inside a '.arff' file using a RandomForest classifier <br>
+ * Class for predicting a raw text or a set of texts inside a '.arff' file using a RandomForest classifier.  <br>
  *
  * This class loads a RandomForest classifier and it uses it to predict the class of a simple raw text or a set of texts in a '.arff' file. <br>
  * <br>

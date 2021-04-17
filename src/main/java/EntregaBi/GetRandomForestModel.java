@@ -16,10 +16,27 @@ import weka.filters.unsupervised.instance.RemovePercentage;
         Train eta Dev fitxategiak sartuta, OneR modeloarekin kalitatearen estimazioa egiten du
 
      */
+/**
+ * A class to generate and evaluate a RandomForest classifier and store both model and evaluation metrics.  <br>
+ *
+ * This class reads an '.arff' and uses it to build a RandomForest classifier.
+ * The classifier is evaluated using 3 different models: Overfitting, Hold Out and CrossValidation.
+ * <br><br>
+ * Arguments needed for main method: <br>
+ * 1 - Path to the existing '.arff' file <br>
+ * 2 - Path to the output file where the model ('.model' format) will be saved.
+ * 3 - Path to the output '.txt' file where the evaluation metrics will be written.
+ * <br> <br>
+ * */
 
 public class GetRandomForestModel {
 
     public static void main(String[] args) throws Exception {
+        /**
+         *
+         * @param args list of arguments as an array of strings
+         * @throws Exception
+         */
 
         if(args.length != 3) {
             System.out.println("Ez duzu arguments atala behar bezala bete!");
