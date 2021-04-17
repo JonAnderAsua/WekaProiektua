@@ -21,14 +21,13 @@ public class GetOneRModel {
 
     public static void main(String[] args) throws Exception {
 
-        if(args.length != 4) {
+        if(args.length != 3) {
             System.out.println("Ez duzu arguments atala behar bezala bete!");
             System.out.println("Erabilera:");
             System.out.println("java -jar GetOneRModel.jar train.arff modeloa.model emaitzak.txt ");            //Programa honek 3 parametro ezberdin beharko ditu
             //1. parametroa train multzorako erabiliko den .arff fitxategia
-            //2. parametroa dev multzorako erabiliko den .arff fitxategia
-            //3. parametroa modeloa gordetzeko erabiliko dugun helbidea, .model izan behar da
-            //4. parametroa .txt fitxategi bat izango da, hemen gure modeloaren kalitatearen estimazioa gordeko dugu
+            //2. parametroa modeloa gordetzeko erabiliko dugun helbidea, .model izan behar da
+            //3. parametroa .txt fitxategi bat izango da, hemen gure modeloaren kalitatearen estimazioa gordeko dugu
 
         }
         else{ //el metodo es practicamente una copia de GetRandomForestModel pero mas simple
@@ -108,7 +107,6 @@ public class GetOneRModel {
                 rmpct2.setPercentage(30);
                 Instances test1 = Filter.useFilter(train, rmpct2);
 
-                evaluatorSplit = new Evaluation(train1);
                 evaluatorSplit.evaluateModel(oner, test1);
             }
             fw.write("\n=============================================================\n");

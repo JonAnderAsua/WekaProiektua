@@ -26,9 +26,8 @@ public class GetRandomForestModel {
             System.out.println("Erabilera:");
             System.out.println("java -jar GetRandomForestModel.jar train.arff modeloa.model emaitzak.txt ");            //Programa honek 3 parametro ezberdin beharko ditu
             //1. parametroa train multzorako erabiliko den .arff fitxategia
-            //2. parametroa dev multzorako erabiliko den .arff fitxategia
-            //3. parametroa modeloa gordetzeko erabiliko dugun helbidea, .model izan behar da
-            //4. parametroa .txt fitxategi bat izango da, hemen gure modeloaren kalitatearen estimazioa gordeko dugu
+            //2. parametroa modeloa gordetzeko erabiliko dugun helbidea, .model izan behar da
+            //3. parametroa .txt fitxategi bat izango da, hemen gure modeloaren kalitatearen estimazioa gordeko dugu
 
         }
         else{
@@ -126,9 +125,7 @@ public class GetRandomForestModel {
                 Instances test1 = Filter.useFilter(train, rmpct2);
 
                 //evaluation
-                evaluatorSplit = new Evaluation(train1);
                 evaluatorSplit.evaluateModel(randomF, test1);
-
             }
 
             //Fitxategian gorde kalitatearen estimazioa

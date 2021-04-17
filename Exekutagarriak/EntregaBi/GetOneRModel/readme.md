@@ -2,7 +2,7 @@ Train fitxategia, dev fitxategia eta modeloa eta emaitzak gordetzeko erabiliko d
 
 Programaren erabileraren adibidea:
 ```bash
-java -jar GetOneRModel.jar AtributuHautapena_BoWspam_train.arff AtributuHautapena_spam_dev.arff oneR.model emaitzak.txt 
+java -jar GetOneRModel.jar AtributuHautapena_BoWspam_train.arff oneR.model emaitzak.txt 
 ```
 
 Hori egitean hurrengo bi fitxategiak sortuko dira:
