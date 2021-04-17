@@ -3,7 +3,7 @@
 Orden de ejecución: 
 GetRaw > TransformRaw (NO,NO,YES) > MakeCompatible > AtributuHautapena > Get___Model
 
-Haciendolo así yo he conseguido los resultados de emaitzak.txt, no aseguro que funcione si no se hace asi.
+Haciendolo así yo he conseguido los resultados de emaitzak.txt.
 
 - [WekaProiektua](#wekaproiektua)
   * [Testuen errepresentazio bektoriala](#testuen-errepresentazio-bektoriala)
