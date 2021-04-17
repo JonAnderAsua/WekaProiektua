@@ -1,0 +1,78 @@
+
+=============================================================
+EBALUAZIO NORMALA, TRAIN ENTRENAMENDU MULTZOA ETA DEV PROBA MULTZOA:
+
+Correctly Classified Instances         882               83.6019 %
+Incorrectly Classified Instances       173               16.3981 %
+Kappa statistic                          0.004 
+Mean absolute error                      0.164 
+Root mean squared error                  0.4049
+Relative absolute error                 60.274  %
+Root relative squared error            109.8815 %
+Total Number of Instances             1055     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0,006    0,003    0,250      0,006    0,011      0,015    0,501     0,163     spam
+                 0,997    0,994    0,838      0,997    0,911      0,015    0,501     0,838     ham
+Weighted Avg.    0,836    0,834    0,743      0,836    0,765      0,015    0,501     0,729     
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+   1 170 |   a = spam
+   3 881 |   b = ham
+
+
+=============================================================
+KFCV-REKIN EBALUATUZ (TRAIN MULTZOAN SOILIK):
+
+Correctly Classified Instances        2879               88.7211 %
+Incorrectly Classified Instances       366               11.2789 %
+Kappa statistic                          0.2879
+Mean absolute error                      0.1128
+Root mean squared error                  0.3358
+Relative absolute error                 47.623  %
+Root relative squared error             97.6311 %
+Total Number of Instances             3245     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0,196    0,003    0,916      0,196    0,322      0,393    0,596     0,289     spam
+                 0,997    0,804    0,886      0,997    0,938      0,393    0,596     0,886     ham
+Weighted Avg.    0,887    0,695    0,890      0,887    0,854      0,393    0,596     0,804     
+
+=== Confusion Matrix ===
+
+    a    b   <-- classified as
+   87  358 |    a = spam
+    8 2792 |    b = ham
+
+
+=============================================================
+HOLD OUT-EKIN (%70) EBALUATUZ (TRAIN MULTZOKO INSTANTZIEKIN SOILIK):
+
+Correctly Classified Instances         862               88.501  %
+Incorrectly Classified Instances       112               11.499  %
+Kappa statistic                          0.2662
+Mean absolute error                      0.115 
+Root mean squared error                  0.3391
+Relative absolute error                 48.5913 %
+Root relative squared error             98.7557 %
+Total Number of Instances              974     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0,180    0,004    0,889      0,180    0,300      0,370    0,588     0,272     spam
+                 0,996    0,820    0,885      0,996    0,937      0,370    0,588     0,885     ham
+Weighted Avg.    0,885    0,708    0,885      0,885    0,850      0,370    0,588     0,801     
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+  24 109 |   a = spam
+   3 838 |   b = ham
+
