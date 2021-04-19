@@ -35,6 +35,8 @@ public class MakeCompatible {
     public static void main(String[] args) throws Exception {
         if(args.length  !=3) {
             System.out.println("Ez duzu arguments atala behar bezala bete!");
+            System.out.println("Erabilera:");
+            System.out.println("java -jar MakeCompatible.jar spam_dev.arff hiztegia.txt BoWspam_dev.arff");
             /*
             for(String a : args){
 
