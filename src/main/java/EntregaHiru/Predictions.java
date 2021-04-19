@@ -117,8 +117,30 @@ public class Predictions {
 
     }
 
-    public String iragarpenakAtera() {
-        String iragarpena = "";
+    public String iragarpenakAtera(String s) throws Exception {
+        String iragarpena = "SPAM";
+        RandomForest randomF = (RandomForest) weka.core.SerializationHelper.read("randomForestUI.model");
+        ConverterUtils.DataSource dataSource = new ConverterUtils.DataSource("spam_clean.arff"); //hutsi dagoen .arff behar dugu
+        Instances data = dataSource.getDataSet();
+        data.setClassIndex(0);
+        System.out.println(data.numInstances());
+        Instance algo = new DenseInstance(data.numAttributes());
+        algo.setDataset(data);
+        algo.setValue(1, s);
+        algo.setMissing(0);
+        data.add(algo); //esaldia duen instantzia sortu eta .arff-ra gehitu
+        Instances dataClear=data;
+        FixedDictionaryStringToWordVector filtroa = new FixedDictionaryStringToWordVector();
+        filtroa.setDictionaryFile(new File("hiztegiaUI.txt")); //esto habria que cambiarlo por un argumento
+        filtroa.setInputFormat(data);
+        data= Filter.useFilter(data, filtroa);
+        Evaluation eval = new Evaluation(data);
+        eval.evaluateModel(randomF, data);
+        for(Prediction p: eval.predictions() ){
+            if(p.predicted() == 1.0){
+                iragarpena = "Ez SPAM";
+            }
+        }
         return iragarpena;
     }
 }

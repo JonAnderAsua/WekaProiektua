@@ -63,8 +63,9 @@ public class IragarpenakController {
                 }
             } catch (IOException | InterruptedException e) {
                 e.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-
 
 
         });
@@ -73,10 +74,9 @@ public class IragarpenakController {
     }
 
     @FXML
-    void iragarpenaClick(ActionEvent event) {
+    void iragarpenaClick(ActionEvent event) throws Exception {
         String testua = textLabelId.getText();
         String iragarpena = iragarpenaEgin(testua);
-        iragarpena = "SPAM";
         iragarpenaLabelId.setText(iragarpena);
     }
 
@@ -86,9 +86,9 @@ public class IragarpenakController {
 
     }
 
-    private String iragarpenaEgin(String s){
+    private String iragarpenaEgin(String s) throws Exception {
         Predictions iragarpenak = new Predictions();
-        String emaitza = iragarpenak.iragarpenakAtera();
+        String emaitza = iragarpenak.iragarpenakAtera(s);
         return emaitza;
     }
 
