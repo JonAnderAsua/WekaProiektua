@@ -21,6 +21,9 @@ public class MainController {
     @FXML
     private AnchorPane EstatistikakPaneId;
 
+    @FXML
+    private AnchorPane IRagarpenakTestuaPane;
+
 
     @FXML
     void initialize() {
@@ -34,5 +37,9 @@ public class MainController {
     @FXML
     void datuakPestañaClick(ActionEvent event) {
         EstatistikakPaneId.toFront();
+    }
+
+    void testuaErakutsi(){
+        IRagarpenakTestuaPane.toFront();
     }
 }

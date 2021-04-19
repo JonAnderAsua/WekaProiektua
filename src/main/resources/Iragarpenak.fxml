@@ -9,7 +9,7 @@
    <children>
       <TextField fx:id="textLabelId" layoutX="63.0" layoutY="36.0" prefHeight="97.0" prefWidth="474.0" text="Iragarri nahi den testua hemen sartu mesedez..." />
       <Label layoutX="124.0" layoutY="153.0" text="Sartutako testuaren iragarritako klasea hurrengoa da:" />
-      <Label fx:id="iragarpenaLabelId" layoutX="279.0" layoutY="207.0" prefHeight="16.0" prefWidth="42.0" />
+      <Label fx:id="iragarpenaLabelId" layoutX="257.0" layoutY="200.0" prefHeight="16.0" prefWidth="88.0" textAlignment="CENTER" />
       <Button fx:id="iragarpenaButton" layoutX="63.0" layoutY="275.0" mnemonicParsing="false" onAction="#iragarpenaClick" text="Iragarpena egin" />
       <Button fx:id="ezabatuButton" layoutX="241.0" layoutY="275.0" mnemonicParsing="false" onAction="#ezabatuClick" text="Testua ezabatu" />
       <Button fx:id="fitxategiaSartuButton" layoutX="405.0" layoutY="275.0" mnemonicParsing="false" onAction="#fitxategiaSartuClick" text="Testu fitxategi bat sartu" />

@@ -117,4 +117,8 @@ public class Predictions {
 
     }
 
+    public String iragarpenakAtera() {
+        String iragarpena = "";
+        return iragarpena;
+    }
 }

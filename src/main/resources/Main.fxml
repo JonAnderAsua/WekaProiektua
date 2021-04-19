@@ -11,6 +11,9 @@
    <children>
       <StackPane layoutX="-4.0" layoutY="42.0" prefHeight="401.0" prefWidth="608.0">
          <children>
+            <AnchorPane fx:id="IRagarpenakTestuaPane" prefHeight="200.0" prefWidth="200.0" >
+               <fx:include fx:id="IragarpenakTestuaId" source="./IragarpenakTestua.fxml" />
+            </AnchorPane>
             <AnchorPane fx:id="IragarpenakPaneId" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF;">
                <fx:include fx:id="IragarpenakId" source="./Iragarpenak.fxml" />
             </AnchorPane>

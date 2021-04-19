@@ -1,12 +1,12 @@
 package UIControllers;
 
+import EntregaHiru.Predictions;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
-
 import java.io.*;
 
 public class IragarpenakController {
@@ -28,6 +28,7 @@ public class IragarpenakController {
 
     @FXML
     private Button fitxategiaSartuButton;
+    private Nagusia nagusia = new Nagusia();
 
 
     @FXML
@@ -37,6 +38,7 @@ public class IragarpenakController {
 
     @FXML
     void fitxategiaSartuClick(ActionEvent event) throws FileNotFoundException {
+        nagusia.erakutsiTestua();
         FileChooser fileChooser = new FileChooser();
         fileChooser.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("TXT fitxategiak", "*.txt")
@@ -71,18 +73,24 @@ public class IragarpenakController {
     @FXML
     void iragarpenaClick(ActionEvent event) {
         String testua = textLabelId.getText();
-        iragarpenaEgin(testua);
-        String iragarpena = "";
-        //Sacar la iragarpena
+        String iragarpena = iragarpenaEgin(testua);
+        iragarpena = "SPAM";
         iragarpenaLabelId.setText(iragarpena);
     }
 
 
     @FXML
     void initialize() {
+
     }
 
-    void iragarpenaEgin(String s){
-        iragarpenaLabelId.setText("Tonto");
+    private String iragarpenaEgin(String s){
+        Predictions iragarpenak = new Predictions();
+        String emaitza = iragarpenak.iragarpenakAtera();
+        return emaitza;
+    }
+
+    public void setNagusia(Nagusia nag) {
+        nagusia = nag;
     }
 }
