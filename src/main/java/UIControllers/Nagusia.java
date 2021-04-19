@@ -17,7 +17,7 @@ import java.io.IOException;
 public class Nagusia extends Application {
     private Parent root;
     private Stage stage;
-    private Parent root2;
+    private Parent iragarTextUI;
 
     private Parent iragarpenakUI;
 
@@ -42,9 +42,10 @@ public class Nagusia extends Application {
         iragarpenakUI = loader2.load();
         iraCont = loader2.getController();
         iraCont.setNagusia(this);
+        iraCont.setMainController(mCont);
 
         FXMLLoader loader3 = new FXMLLoader(getClass().getResource("/IragarpenakTestua.fxml"));
-        root2 = loader3.load();
+        iragarTextUI = loader3.load();
         iTextContr = loader3.getController();
     }
 
@@ -54,8 +55,4 @@ public class Nagusia extends Application {
         stage.setResizable(false);
     }
 
-
-    public void erakutsiTestua() {
-        mCont.testuaErakutsi();
-    }
 }

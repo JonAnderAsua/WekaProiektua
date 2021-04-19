@@ -22,12 +22,13 @@ public class MainController {
     private AnchorPane EstatistikakPaneId;
 
     @FXML
-    private AnchorPane IRagarpenakTestuaPane;
+    private AnchorPane IragarpenakTextPane;
 
 
     @FXML
     void initialize() {
-        EstatistikakPaneId.toBack();//Iragarpenak egiteko panelarekin hasieratu
+        EstatistikakPaneId.toBack();
+        IragarpenakTextPane.toBack();
     }
 
     @FXML
@@ -40,6 +41,7 @@ public class MainController {
     }
 
     void testuaErakutsi(){
-        IRagarpenakTestuaPane.toFront();
+        System.out.println(IragarpenakTextPane);
+        IragarpenakTextPane.toFront();
     }
 }

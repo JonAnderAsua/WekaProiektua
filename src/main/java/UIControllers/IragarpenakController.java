@@ -29,6 +29,7 @@ public class IragarpenakController {
     @FXML
     private Button fitxategiaSartuButton;
     private Nagusia nagusia = new Nagusia();
+    private MainController mc = new MainController();
 
 
     @FXML
@@ -38,7 +39,8 @@ public class IragarpenakController {
 
     @FXML
     void fitxategiaSartuClick(ActionEvent event) throws FileNotFoundException {
-        nagusia.erakutsiTestua();
+        mc.testuaErakutsi();
+
         FileChooser fileChooser = new FileChooser();
         fileChooser.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("TXT fitxategiak", "*.txt")
@@ -92,5 +94,9 @@ public class IragarpenakController {
 
     public void setNagusia(Nagusia nag) {
         nagusia = nag;
+    }
+
+    public void setMainController(MainController mCont) {
+        mc = mCont;
     }
 }
