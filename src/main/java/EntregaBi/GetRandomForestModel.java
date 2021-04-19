@@ -29,7 +29,7 @@ import weka.filters.unsupervised.instance.RemovePercentage;
  * <br> <br>
  * */
 
-public class GetRandomForestModel {
+public class    GetRandomForestModel {
 
     public static void main(String[] args) throws Exception {
         /**

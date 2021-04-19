@@ -1,6 +1,6 @@
 Programa honek .arff fitxategi bat hartuko du eta StringToWordVector filtroa aplikatuko dio. Horretarako 5 parametro behar dira:
 
-.arff fitxategia, sortutako den hiztegia gordetzeko helbidea,  TF transformazioa nahi den ala ez (YES/NO), IDF transformazioa nahi den ala ez (YES/NO) eta Sparse ala NonSparse nahi den ala ez (YES/NO)
+.arff fitxategia, sortutako den hiztegia gordetzeko helbidea,   IDF transformazioa nahi den ala ez (YES/NO), TF transformazioa nahi den ala ez (YES/NO) eta Sparse ala NonSparse nahi den ala ez (YES/NO)
 
 Programaren erabileraren adibidea:
 
