@@ -110,7 +110,7 @@ public class Predictions {
             System.out.println("Ez duzu arguments atala behar bezala bete!");
             System.out.println("Erabilerak:");
             System.out.println("Lehenengoa: java -jar Predictions.jar modeloa.model test.arff emaitzak.txt hiztegia");
-            System.out.println("Bigarrena: java -jar modeloa.model \"Ebaluatu nahi den esaldia\" emaitzak.txt hiztegia");
+            System.out.println("Bigarrena: java -jar Predictions.jar modeloa.model \"Ebaluatu nahi den esaldia\" emaitzak.txt hiztegia");
 
         }
 
