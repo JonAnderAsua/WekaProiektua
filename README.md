@@ -1,97 +1,56 @@
 # WekaProiektua
 
-Orden de ejecución: 
-GetRaw > TransformRaw (NO,NO,YES) > MakeCompatible > AtributuHautapena > Get___Model
-
-Haciendolo así yo he conseguido los resultados de emaitzak.txt.
-
 - [WekaProiektua](#wekaproiektua)
-  * [Testuen errepresentazio bektoriala](#testuen-errepresentazio-bektoriala)
-    + [Datu gordinak arff formatura bihurtu](#datu-gordinak-arff-formatura-bihurtu)
-      - [Requerimentos](#requerimentos)
-    + [Datu horien errepresentazio bektoriala lortu](#datu-horien-errepresentazio-bektoriala-lortu)
-    + [Test multzoa errepresentazio-espaziora egokitu](#test-multzoa-errepresentazio-espaziora-egokitu)
-    + [Dokumentazio eta atal teorikoa](#dokumentazio-eta-atal-teorikoa)
-  * [Sailkatzailea](#sailkatzailea)
-    + [Informazio irabazian oinarritutako atributuen hautapena](#informazio-irabazian-oinarritutako-atributuen-hautapena)
-    + [Ereduaren inferentzia eta itxarondako kalitatearen estimazioa](#ereduaren-inferentzia-eta-itxarondako-kalitatearen-estimazioa)
-    + [Eredu iragarlea](#eredu-iragarlea)
-      - [OneR](#oner)
-      - [RandomForest](#randomforest)
-    + [Dokumentazio eta atal teorikoa](#dokumentazio-eta-atal-teorikoa-1)
-  * [Iragarpenak](#iragarpenak)
-    + [Cosas](#cosas)
-    + [Dokumentazio eta atal teorikoa](#dokumentazio-eta-atal-teorikoa-2)
+  * [Programaren exekuzioa](#programaren-exekuzioa)
+    + [Erabilera](#erabilera)
+  * [GitHub repositorioari buruzko informazioa](#github-repositorioari-buruzko-informazioa)
+    + [Exekutagarriak](#exekutagarriak)
+    + [Hasierako Fitxategiak](#hasierako-fitxategiak)
+    + [JavaDoc](#javadoc)
+    + [Lortutako emaitzak](#lortutako-emaitzak)
+    + [src](#src)
 
+## Programaren exekuzioa
 
+Soilik programa exekutatu nahi bada, [Exekutagarriak](https://github.com/JonAnderAsua/WekaProiektua/tree/master/Exekutagarriak) karpetan daude jar fitxategi guztiak. 
 
-## Testuen errepresentazio bektoriala
+Mesedez irakurri karpeta bakoitzaren barnean daude README fitxategiak.
 
-### Datu gordinak arff formatura bihurtu
-3.1 del primer documento
+### Erabilera
 
-#### Requerimentos
-Para ejecutar el script que arregla los fitxategis train y dev, hay que tener instalado R en el ordenador, ya que ejecuta el otro script de R (train y dev). Ademas de eso, hace falta instalar varias librerias de R, asi que si es la primera vez que lo ejecutais tendreis que descomentar las primeras lineas en el script de R.
+1. [GetRaw](https://github.com/JonAnderAsua/WekaProiektua/tree/master/Exekutagarriak/EntregaBat/GetRaw) programa erabili behar da, hemen hasierako txt fitxategiak arff formatura aldatuko dira.
 
-Ejecutar el script: 
+2. [TransformRaw](https://github.com/JonAnderAsua/WekaProiektua/tree/master/Exekutagarriak/EntregaBat/TransformRaw) erabiliz train fitxategia BoW formatura aldatu behar da.
 
-```bash
-./getRaw.sh SMS_SpamCollection.train.txt SMS_SpamCollection.dev.txt SMS_SpamCollection.test_blind.txt ~/weka-3-8-5-azul-zulu-linux/weka-3-8-5/weka.jar 
-```
+3. [MakeCompatible](https://github.com/JonAnderAsua/WekaProiektua/tree/master/Exekutagarriak/EntregaBat/MakeCompatible) erabiliz test eta dev fitxategiak BoW formatura aldatu daitezke lehen lortutako hiztegia erabiliz.
+Fitxategi honen erabilera ez da beharrezkoa, izan ere iragarpenak egiteko momentuan GetRaw-en sortutako arff fitxategia sartuko dugu (horrela hasierako esaldia berriz lortzea oso erraza egingo zaigu).
 
-### Datu horien errepresentazio bektoriala lortu
-3.2 del primer documento, va de Bag of Words/Sparse/NonSparse...
-Uso:
-```bash
-java -jar TransformRaw.jar train.arff hiztegia IDFTF(YES/NO) TFTF(YES/NO) SPARSE(YES/NO) 
-```
+4. [AtributuHautapena](https://github.com/JonAnderAsua/WekaProiektua/tree/master/Exekutagarriak/EntregaBi/AtributuHautapena) erabiliz hiztegia txikitu erabiliko dugu.
 
-### Test multzoa errepresentazio-espaziora egokitu
-3.3 del primer documento.
+5. [GetOneRModel](https://github.com/JonAnderAsua/WekaProiektua/tree/master/Exekutagarriak/EntregaBi/GetOneRModel)/[GetRandomForestModel](https://github.com/JonAnderAsua/WekaProiektua/tree/master/Exekutagarriak/EntregaBi/GetRandomForestModel) exekutatu eta gure modeloa lortuko dugu.
 
-### Dokumentazio eta atal teorikoa
+6. [Predictions](https://github.com/JonAnderAsua/WekaProiektua/tree/master/Exekutagarriak/EntregaHiru/Predictions) erabiltzeko prest gaude orain. Erabilera bakoitzaren espezifikazioak karpeta horren barnean dagoen README-an daude.
 
----
+## GitHub repositorioari buruzko informazioa
 
-## Sailkatzailea
-### Informazio irabazian oinarritutako atributuen hautapena 
-3.1 del segundo documento. Preguntar: Atributuen hautapena (erredundantzia kendu)
-  
-### Ereduaren inferentzia eta itxarondako kalitatearen estimazioa 
-3.2 del segundo documento. Parametro ekorketa (depth, k value, numtrees?)
-  
-### Eredu iragarlea
-#### OneR
-```bash
-java -jar GetOneRModel.jar BoWspam_train.arff spam_devBoW.arff oneR.model emaitzak.txt
-```
+Repositorio honetan aurkitu daitezke proiektuaren zehar egin eta erabili ditugun fitxategi guztiak.
 
-#### RandomForest
-```bash
-java -jar GetRandomForestModel.jar BoWspam_train.arff spam_devBoW.arff RandomForest.model emaitzak.txt
-```
+### Exekutagarriak
 
-### Dokumentazio eta atal teorikoa
-  
----
+Karpeta honen barruan aurreko sekzioan azaldutako exekutagarriak eta beste batzuk ere bai aurkitu daitezke.
 
-## Iragarpenak
+### Hasierako Fitxategiak
 
-Para hacer las prediciones de un arff (no compatible)
-```bash
-"randomF.model" "spam_test.arff" "predictionsIrteeraARFFfitxategia.txt"
-```
+Karpeta honetan hasiera batean geneuzkan eraldatu gabeko testu fitxategiak daude.
 
+### JavaDoc
 
-Para hacer la prediccion de una frase
-```bash
-"randomF.model" "you won cash prize, TXT 61020203 for free" "predictionsIrteeraEsaldia.txt"
-```
+Bere izenak esaten duen bezala, JavaDoc guztiak karpeta honen barnean daude.
 
-### Cosas
-  
-### Dokumentazio eta atal teorikoa
+### Lortutako emaitzak
 
+Hemen exekutagarrien bidez lortutako modeloak, hiztegiak, testu fitxategiak eta bestelakoak daude.
 
+### src 
 
-
+Java fitxategi guztiak, baita ere aurkezpenerako erabilitako programa eta UI-a.
