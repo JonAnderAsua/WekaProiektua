@@ -1,5 +1,15 @@
 # WekaProiektua
 
+- [WekaProiektua](#wekaproiektua)
+  * [Programaren exekuzioa](#programaren-exekuzioa)
+    + [Erabilera](#erabilera)
+  * [GitHub repositorioari buruzko informazioa](#github-repositorioari-buruzko-informazioa)
+    + [Exekutagarriak](#exekutagarriak)
+    + [Hasierako Fitxategiak](#hasierako-fitxategiak)
+    + [JavaDoc](#javadoc)
+    + [Lortutako emaitzak](#lortutako-emaitzak)
+    + [src](#src)
+
 ## Programaren exekuzioa
 
 Soilik programa exekutatu nahi bada, [Exekutagarriak](https://github.com/JonAnderAsua/WekaProiektua/tree/master/Exekutagarriak) karpetan daude jar fitxategi guztiak. 
@@ -22,3 +32,25 @@ Fitxategi honen erabilera ez da beharrezkoa, izan ere iragarpenak egiteko moment
 6. [Predictions](https://github.com/JonAnderAsua/WekaProiektua/tree/master/Exekutagarriak/EntregaHiru/Predictions) erabiltzeko prest gaude orain. Erabilera bakoitzaren espezifikazioak karpeta horren barnean dagoen README-an daude.
 
 ## GitHub repositorioari buruzko informazioa
+
+Repositorio honetan aurkitu daitezke proiektuaren zehar egin eta erabili ditugun fitxategi guztiak.
+
+### Exekutagarriak
+
+Karpeta honen barruan aurreko sekzioan azaldutako exekutagarriak eta beste batzuk ere bai aurkitu daitezke.
+
+### Hasierako Fitxategiak
+
+Karpeta honetan hasiera batean geneuzkan eraldatu gabeko testu fitxategiak daude.
+
+### JavaDoc
+
+Bere izenak esaten duen bezala, JavaDoc guztiak karpeta honen barnean daude.
+
+### Lortutako emaitzak
+
+Hemen exekutagarrien bidez lortutako modeloak, hiztegiak, testu fitxategiak eta bestelakoak daude.
+
+### src 
+
+Java fitxategi guztiak, baita ere aurkezpenerako erabilitako programa eta UI-a.
