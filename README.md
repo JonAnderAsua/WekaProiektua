@@ -1,5 +1,7 @@
 # WekaProiektua
 
+# Karpeta nagusian dauden fitxategiak programen probak egitean sortutatoak dira, ez dira emaitz bezala hartu behar!!
+
 Orden de ejecución: 
 GetRaw > TransformRaw (NO,NO,YES) > MakeCompatible > AtributuHautapena > Get___Model
 
