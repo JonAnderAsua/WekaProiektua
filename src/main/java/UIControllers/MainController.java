@@ -27,8 +27,7 @@ public class MainController {
 
     @FXML
     void initialize() {
-        EstatistikakPaneId.toBack();
-        IragarpenakTextPane.toBack();
+        EstatistikakPaneId.toFront();
     }
 
     @FXML

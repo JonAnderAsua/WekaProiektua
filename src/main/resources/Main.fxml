@@ -17,9 +17,6 @@
             <AnchorPane fx:id="EstatistikakPaneId" prefHeight="363.0" prefWidth="594.0" style="-fx-background-color: #FFFFFF;">
                <fx:include fx:id="EstatistikakId" source="./Estatistikak.fxml" />
             </AnchorPane>
-            <AnchorPane fx:id="IragarpenakTextPane" prefHeight="200.0" prefWidth="200.0" >
-               <fx:include fx:id="IragarpenakTextId" source="./IragarpenakTestua.fxml" />
-            </AnchorPane>
          </children>
       </StackPane>
       <Label prefHeight="84.0" prefWidth="600.0" style="-fx-background-color: #ae0099;" />

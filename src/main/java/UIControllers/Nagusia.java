@@ -1,29 +1,21 @@
 package UIControllers;
 
-import UIControllers.IragarpenakController;
-import UIControllers.IragarpenakTextController;
-import UIControllers.MainController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
-import javafx.util.Callback;
 
 import java.io.IOException;
 
 public class Nagusia extends Application {
     private Parent root;
     private Stage stage;
-    private Parent iragarTextUI;
 
     private Parent iragarpenakUI;
 
     private MainController mCont;
     private IragarpenakController iraCont;
-    private IragarpenakTextController iTextContr;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -44,9 +36,6 @@ public class Nagusia extends Application {
         iraCont.setNagusia(this);
         iraCont.setMainController(mCont);
 
-        FXMLLoader loader3 = new FXMLLoader(getClass().getResource("/IragarpenakTestua.fxml"));
-        iragarTextUI = loader3.load();
-        iTextContr = loader3.getController();
     }
 
     private void stageSetup(){

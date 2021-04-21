@@ -6,16 +6,27 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="569.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label layoutX="59.0" layoutY="128.0" text="Lortutako FMeasure-a:" />
+      <Label layoutX="32.0" layoutY="100.0" text="SPAM klasearen FMeasure-a:" />
       <ImageView fitHeight="286.0" fitWidth="324.0" layoutX="242.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../../Descargas/índice.jpg" />
          </image>
       </ImageView>
-      <Label layoutX="79.0" layoutY="185.0" text="0.8535">
+      <Label layoutX="84.0" layoutY="132.0" text="0.8803">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="22.0" layoutY="192.0" text="Ez-SPAM klasearen FMeasure-a:" />
+      <Label layoutX="84.0" layoutY="213.0" text="0.9830">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="32.0" layoutY="270.0" text="Erabilitako atributu kopurua:" />
+      <Label layoutX="103.0" layoutY="296.0" text="897">
          <font>
             <Font size="24.0" />
          </font>
