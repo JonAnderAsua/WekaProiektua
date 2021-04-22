@@ -12,8 +12,7 @@
 
 ## Programaren exekuzioa
 
-Exekutagarriak Java 15 erabiliz sortu dira eta beraz, beharrezkoa izan daiteke Java 15 erabiltzea hauek exekutatzeko.
-
+Exekutagarriak Java 15 erabiliz sortu dira eta beraz, beharrezkoa izan daiteke Java 15 erabiltzea hauek exekutatzeko (programa iturri kodetik exekutatzeko ez zen arazorik egon behar).
 
 Java 15 instalatzeko SDKMAN-en erabilera gomendatzen dugu (Windows eko erabiltzaileak hurrats berdinak jarrai dezakete Git Bash erabiliz):
 
